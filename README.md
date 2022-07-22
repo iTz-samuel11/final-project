@@ -12,10 +12,10 @@
 
 ## Integrantes
 
-- Alberto Moreno "https://github.com/Alb3rnaru"
+- Alberto Moreno [alb3rnaru](https://github.com/Alb3rnaru)
 
-- Daniela Giménez "https://github.com/danielagimeneez"
+- Daniela Giménez [danielagimeneez](https://github.com/danielagimeneez)
 
-- Samuel Faraco "https://github.com/iTz-samuel11"
+- Samuel Faraco [iTz-samuel11](https://github.com/iTz-samuel11)
 
-- Valeria Zampetti "https://github.com/ValeriaZampetti"
+- Valeria Zampetti [ValeriaZampetti](https://github.com/ValeriaZampetti)
