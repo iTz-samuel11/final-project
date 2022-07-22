@@ -41,4 +41,12 @@ To update with all yours tables you can edit the file app.py and go to the line 
 1. `$ npm install`
 2. `$ npm run start`
 
-inicio de proyecto
+## Integrantes
+
+- Alberto Moreno "https://github.com/Alb3rnaru"
+
+- Daniela Giménez "https://github.com/danielagimeneez"
+
+- Samuel Faraco "https://github.com/iTz-samuel11"
+
+- Valeria Zampetti "https://github.com/ValeriaZampetti"
