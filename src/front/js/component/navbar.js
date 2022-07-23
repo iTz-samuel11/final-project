@@ -8,9 +8,11 @@ export const Navbar = () => {
       style={{ backgroundColor: "#211224" }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar scroll
-        </a>
+        <Link to="/">
+          <a className="navbar-brand" href="#">
+            Navbar scroll
+          </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -90,9 +92,9 @@ export const Navbar = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
-              {"Login"}
-            </button>
+            <Link to="/sign-up">
+              <button className="btn btn-danger">{"Sign In Here"}</button>
+            </Link>
           </form>
         </div>
       </div>
