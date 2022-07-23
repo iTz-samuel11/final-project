@@ -8,8 +8,16 @@ from api.utils import generate_sitemap, APIException
 create = Blueprint('create', __name__)
 
 
-@create.route('/users', methods['POST'])
+@create.route('/users', methods=['POST'])
+def users():
+    body= request.json
+    email=body.get('email', None)
+    password= body.get('password', None)
 
+    if email is None or password is None:
+        return jsonify(" revise el payload de su solicitud...."),400
+    new_user=User(email, password)
+    return jsonify(new_user.serialize()),201
 
 
 @api.route('/hello', methods=['POST', 'GET'])
