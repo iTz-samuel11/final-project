@@ -1,3 +1,13 @@
-/* 
-    General Styles used on every website (Don't Repeat Yourself)
-*/
+#app {
+  background-color: #fff8f9;
+  /* border: 8px solid black; */
+  border: 4px solid transparent;
+  border-image: linear-gradient(
+      to bottom,
+      #211224 0%,
+      #fff8f9 80%,
+      #aa8caf 100%
+    )
+    1;
+  border-bottom: #fff8f9;
+}
