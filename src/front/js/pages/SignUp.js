@@ -7,7 +7,7 @@ export const SignUp = (props) => {
   const [password, setPassword] = useState("");
   return (
     <div className="container d-flex">
-      <div className="col-7">
+      <div className="col-7 me-5">
         <h1 className="m-3"> SignUp</h1>
         <div className="row">
           <form>
@@ -38,7 +38,16 @@ export const SignUp = (props) => {
         </div>
       </div>
       <div className="col-5">
-        <h1>Hola</h1>
+        <h1>Seguros Bonpland</h1>
+        <img
+          style={{
+            height: "200px",
+            width: "200px",
+            margin: "30%",
+            marginTop: "10%",
+          }}
+          src="https://verdeyazul.diarioinformacion.com/wp-content/uploads/2021/05/Falco-Pellegrino-Falco-peregrinus-copertina-1024x576.jpg"
+        />
       </div>
     </div>
   );
