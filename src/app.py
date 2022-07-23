@@ -6,6 +6,7 @@ from flask import Flask
 from flask_migrate import Migrate
 from api.models import db
 from flask_cors import CORS
+from api.utils import APIException, generate_sitemap
 
 #from models import Person
 
@@ -27,6 +28,12 @@ db.init_app(app)
 
 # Allow CORS requests to this API
 CORS(app)
+
+@app.route('/')
+def sitemap():
+    if ENV == "development":
+        return generate_sitemap(app)
+    return send_from_directory(static_file_dir, 'index.html')
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
