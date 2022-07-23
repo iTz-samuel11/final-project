@@ -9,9 +9,9 @@ export const Navbar = () => {
     >
       <div className="container-fluid">
         <Link to="/">
-          <a className="navbar-brand" href="#">
+          <h2 className="navbar-brand" href="#">
             Navbar scroll
-          </a>
+          </h2>
         </Link>
         <button
           className="navbar-toggler"
@@ -78,7 +78,7 @@ export const Navbar = () => {
               <a
                 className="nav-link disabled"
                 href="#"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-disabled="true"
               >
                 Link

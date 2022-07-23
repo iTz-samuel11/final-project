@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 export const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { store, actions } = useContext(Context);
   return (
     <div className="container d-flex">
       <div className="col-7 me-5">
@@ -32,7 +33,16 @@ export const SignUp = (props) => {
           </form>
         </div>
         <div className="row">
-          <button type="button" className="btn btn-success m-4">
+          <button
+            type="button"
+            className="btn btn-success m-4"
+            onClick={async (e) => {
+              await actions.signUpUser({
+                email: email,
+                password: password,
+              });
+            }}
+          >
             {"sign up..."}
           </button>
         </div>
