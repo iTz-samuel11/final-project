@@ -7,11 +7,15 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     client = db.Column(db.Boolean(), unique=False, nullable=False)
+    nombre= db.Column(db.string(120), nullable=False)
+    apellido= db.Colum(db.string(120), nullable= False)
 
-    def __init__(self,email,password):
+    def __init__(self,email,password,nombre,apellido):
         self.email=email
         self.password=password
         self.client= False
+        self.nombre=nombre
+        self.apellido=apellido
 
         db.session.add(self)
         db.session.commit()
@@ -24,5 +28,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+            "name":self.nombre,
+            "lastname": self.apellido,
             # do not serialize the password, its a security breach
         }
