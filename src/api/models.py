@@ -8,7 +8,7 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     client = db.Column(db.Boolean(), unique=False, nullable=False)
     nombre= db.Column(db.String(120), nullable=False)
-    apellido= db.Colum(db.String(120), nullable= False)
+    apellido= db.Column(db.String(120), nullable= False)
 
     def __init__(self,email,password,nombre,apellido):
         self.email=email
