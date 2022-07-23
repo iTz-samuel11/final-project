@@ -5,10 +5,10 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 
-api = Blueprint('api', __name__)
+create = Blueprint('create', __name__)
 
 
-@api.route('/users', methods['POST'])
+@create.route('/users', methods['POST'])
 
 
 
