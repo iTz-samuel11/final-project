@@ -3,6 +3,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const SignUp = (props) => {
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store, actions } = useContext(Context);
@@ -12,6 +14,24 @@ export const SignUp = (props) => {
         <h1 className="m-3"> SignUp</h1>
         <div className="row">
           <form>
+            <h4>{"Name"}</h4>
+            <input
+              type="text"
+              name="name"
+              className="form-control m-1"
+              value={nombre}
+              placeholder="name"
+              onChange={(e) => setNombre(e.target.value)}
+            />
+            <h4>{"Last Name"}</h4>
+            <input
+              type="text"
+              name="email"
+              className="form-control m-1"
+              value={apellido}
+              placeholder="Last name"
+              onChange={(e) => setApellido(e.target.value)}
+            />
             <h4 className="text-secondary">{" Email"}</h4>
             <input
               type="text"
@@ -35,9 +55,11 @@ export const SignUp = (props) => {
         <div className="row">
           <button
             type="button"
-            className="btn btn-success m-4"
+            className="btn btn-dark m-4"
             onClick={async (e) => {
               await actions.signUpUser({
+                nombre: nombre,
+                apellido: apellido,
                 email: email,
                 password: password,
               });
