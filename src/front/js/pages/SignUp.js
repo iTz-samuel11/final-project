@@ -17,20 +17,24 @@ export const SignUp = (props) => {
             <h4>{"Name"}</h4>
             <input
               type="text"
-              name="name"
+              name="fname"
+              min="3"
               className="form-control m-1"
               value={nombre}
               placeholder="name"
               onChange={(e) => setNombre(e.target.value)}
+              aria-required="true"
             />
             <h4>{"Last Name"}</h4>
             <input
               type="text"
-              name="email"
+              name="lname"
+              min="3"
               className="form-control m-1"
               value={apellido}
               placeholder="Last name"
               onChange={(e) => setApellido(e.target.value)}
+              aria-required="true"
             />
             <h4 className="text-secondary">{" Email"}</h4>
             <input
@@ -40,15 +44,18 @@ export const SignUp = (props) => {
               value={email}
               placeholder="email"
               onChange={(e) => setEmail(e.target.value)}
+              aria-required="true"
             />
             <h4 className="text-secondary"> {"Password"}</h4>
             <input
               type="password"
               className="form-control m-1"
               name="password"
+              min={"8"}
               value={password}
               placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
+              aria-required="true"
             />
           </form>
         </div>
@@ -57,6 +64,19 @@ export const SignUp = (props) => {
             type="button"
             className="btn btn-dark m-4"
             onClick={async (e) => {
+              if (
+                password === "" ||
+                email === "" ||
+                nombre === "" ||
+                apellido === ""
+              ) {
+                alert("llene todas las casillas por favor");
+                return;
+              }
+              if (password.length <= 7) {
+                alert("el password debe tener minimo 8 caracteres");
+                return;
+              }
               await actions.signUpUser({
                 nombre: nombre,
                 apellido: apellido,

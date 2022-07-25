@@ -93,7 +93,10 @@ export const Navbar = () => {
               aria-label="Search"
             />
             <Link to="/sign-up">
-              <button className="btn btn-danger">{"Sign In Here"}</button>
+              <button className="btn btn-danger">{"Sign Un Here"}</button>
+            </Link>
+            <Link to="/log-in">
+              <button className="btn btn-danger">{"logIn Here"}</button>
             </Link>
           </form>
         </div>
