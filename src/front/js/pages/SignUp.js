@@ -8,6 +8,7 @@ export const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
   return (
     <div className="container d-flex">
       <div className="col-7 me-5">
@@ -77,12 +78,17 @@ export const SignUp = (props) => {
                 alert("el password debe tener minimo 8 caracteres");
                 return;
               }
-              await actions.signUpUser({
+              const success = await actions.signUpUser({
                 nombre: nombre,
                 apellido: apellido,
                 email: email,
                 password: password,
               });
+              if (success) {
+                navigate("/");
+                return;
+              }
+              alert("no pude crear el usuario");
             }}
           >
             {"sign up..."}

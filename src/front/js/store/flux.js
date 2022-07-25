@@ -17,14 +17,21 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       signUpUser: async (requestBody) => {
-        const response = await fetch(`${process.env.BACKEND_URL}/create/user`, {
-          method: "POST",
-          body: JSON.stringify(requestBody),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        return response.status === 201;
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/create/user`,
+            {
+              method: "POST",
+              body: JSON.stringify(requestBody),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          return response.status === 201;
+        } catch (error) {
+          console.log("ahora si");
+        }
       },
       getMessage: async () => {
         try {
