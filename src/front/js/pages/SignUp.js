@@ -85,7 +85,7 @@ export const SignUp = (props) => {
                 password: password,
               });
               if (success) {
-                navigate("/");
+                navigate("/log-in");
                 return;
               }
               alert("no pude crear el usuario");
