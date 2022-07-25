@@ -19,9 +19,9 @@ class User(db.Model):
         self.client= False
         self.nombre=nombre
         self.apellido=apellido
-        self.password_hash = generate_password_hash(f"{password}{self.user_salt}")
         self.user_salt = b64encode(os.urandom(32)).decode("utf-8")
-
+        self.set_password(password)
+        
         db.session.add(self)
         db.session.commit()
 
@@ -29,7 +29,7 @@ class User(db.Model):
         self.password_hash = generate_password_hash(f"{password}{self.user_salt}", salt_length=len(self.user_salt))
 
     def check_password(self,password):
-        check_password_hash(self.password_hash, f"{password}{self.user_salt}")
+        return check_password_hash(self.password_hash, f"{password}{self.user_salt}")
 
     def serialize(self):
         return {
