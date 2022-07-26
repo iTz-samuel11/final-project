@@ -39,7 +39,7 @@ export const SignUp = (props) => {
             />
             <h4 className="text-secondary">{" Email"}</h4>
             <input
-              type="text"
+              type="email"
               name="email"
               className="form-control m-1"
               value={email}
