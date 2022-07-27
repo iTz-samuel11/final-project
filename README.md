@@ -10,6 +10,10 @@
 1. `$ npm install`
 2. `$ npm run start`
 
+### Pasos para instalar jwt en caso de que te de error el import
+
+1. `$pipenv install flask-jwt-extended`
+
 ## Integrantes
 
 - Alberto Moreno [alb3rnaru](https://github.com/Alb3rnaru)

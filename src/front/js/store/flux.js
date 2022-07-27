@@ -33,31 +33,23 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("ahora si");
         }
       },
-      getMessage: async () => {
+      logIn: async (requestBody) => {
         try {
-          // fetching data from the backend
-          const resp = await fetch(process.env.BACKEND_URL + "/create/hello");
-          const data = await resp.json();
-          setStore({ message: data.message });
-          // don't forget to return something, that is how the async resolves
-          return data;
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/create/token`,
+            {
+              method: "POST",
+              body: JSON.stringify(requestBody),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          return response.status === 201;
         } catch (error) {
-          console.log("Error loading message from backend", error);
+          console.log(Error);
+          return false;
         }
-      },
-      changeColor: (index, color) => {
-        //get the store
-        const store = getStore();
-
-        //we have to loop the entire demo array to look for the respective index
-        //and change its color
-        const demo = store.demo.map((elm, i) => {
-          if (i === index) elm.background = color;
-          return elm;
-        });
-
-        //reset the global store
-        setStore({ demo: demo });
       },
     },
   };
