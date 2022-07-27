@@ -44,7 +44,7 @@ export const LogIn = (props) => {
               password: password,
             });
             if (success) {
-              navigate("/");
+              navigate("/segurosBonpland");
               return;
             }
             alert("something happened while creating the user");
