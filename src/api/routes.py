@@ -25,7 +25,7 @@ def handle_token():
     body = request.json
     email=body.get('email',None)
     password=body.get('password',None)
-    user=User.query.filter_by(email=email).one_or_one()
+    user=User.query.filter_by(email=email).one_or_none()
     if user is None: return jsonify(
         "No existe el usuario"
     ), 400

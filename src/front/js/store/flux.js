@@ -45,7 +45,13 @@ const getState = ({ getStore, getActions, setStore }) => {
               },
             }
           );
-          return response.status === 201;
+          if (response.status === 400) {
+            throw "Invalid email or password format";
+          }
+          const data = await response.json();
+          localStorage.setItem("jwt-token", data.token);
+
+          return data;
         } catch (error) {
           console.log(Error);
           return false;

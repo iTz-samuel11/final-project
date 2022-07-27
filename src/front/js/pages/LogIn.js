@@ -44,7 +44,7 @@ export const LogIn = (props) => {
               password: password,
             });
             if (success) {
-              navigate("/private");
+              navigate("/");
               return;
             }
             alert("something happened while creating the user");
