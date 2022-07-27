@@ -88,7 +88,7 @@ export const SignUp = (props) => {
                 return;
               }
               if (password.length <= 7) {
-                alert("el password debe tener minimo 8 caracteres");
+                alert("La contraseña debe tener minimo 8 caracteres");
                 return;
               }
               const success = await actions.signUpUser({
@@ -105,7 +105,7 @@ export const SignUp = (props) => {
               alert("no pude crear el usuario");
             }}
           >
-            {"sign up..."}
+            {"Registrese"}
           </button>
         </div>
       </div>

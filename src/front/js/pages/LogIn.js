@@ -37,7 +37,7 @@ export const LogIn = (props) => {
       <div className="row">
         <button
           type="button"
-          className="btn btn-primary m-4"
+          className="btn btn-dark m-4"
           onClick={async (e) => {
             const success = await actions.logIn({
               email: email,
