@@ -12,12 +12,13 @@ def user():
     body= request.json
     email=body.get('email', None)
     password= body.get('password', None)
+    cedula = body.get('cedula', None)
     name= body.get('nombre', None)
     lastname= body.get('apellido', None)
 
-    if email is None or password is None or name is None or lastname is None:
+    if email is None or password is None or name is None or lastname is None or cedula is None:
         return jsonify(" revise el payload de su solicitud...."),400
-    new_user=User(email, password, name, lastname)
+    new_user=User(email, password, name, lastname, cedula)
     return jsonify(new_user.serialize()),201
 
 @create.route("/token", methods=["POST"])
