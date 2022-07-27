@@ -99,6 +99,14 @@ export const Navbar = () => {
               <button className="btn btn-danger">{"logIn Here"}</button>
             </Link>
           </form>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              localStorage.clear();
+            }}
+          >
+            {"Hola soy un boton"}{" "}
+          </button>
         </div>
       </div>
     </nav>

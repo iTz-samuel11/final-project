@@ -57,6 +57,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
       },
+      private: async () => {
+        const token = localStorage.getItem("jwt-token");
+        const response = await fetch(`${process.env.BACKEND_URL}/api/private`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok)
+          throw Error("There was a problem in the login request");
+        var data = await response.json();
+        console.log("This is the data you requested", data);
+        setStore({
+          private: data,
+        });
+        return data;
+      },
     },
   };
 };
