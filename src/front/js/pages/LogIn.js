@@ -17,7 +17,7 @@ export const LogIn = (props) => {
       <div className="row">
         <form>
           <input
-            type="text"
+            type="email"
             name="email"
             className="form-control m-1"
             value={email}

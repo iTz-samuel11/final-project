@@ -7,6 +7,7 @@ export const SignUp = (props) => {
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cedula, setCedula] = useState("");
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
   return (
@@ -35,6 +36,17 @@ export const SignUp = (props) => {
               value={apellido}
               placeholder="Last name"
               onChange={(e) => setApellido(e.target.value)}
+              aria-required="true"
+            />
+            <h4>{"Cedula"}</h4>
+            <input
+              type="text"
+              name="fname"
+              min="3"
+              className="form-control m-1"
+              value={cedula}
+              placeholder="C.I."
+              onChange={(e) => setCedula(e.target.value)}
               aria-required="true"
             />
             <h4 className="text-secondary">{" Email"}</h4>
@@ -69,7 +81,8 @@ export const SignUp = (props) => {
                 password === "" ||
                 email === "" ||
                 nombre === "" ||
-                apellido === ""
+                apellido === "" ||
+                cedula === ""
               ) {
                 alert("llene todas las casillas por favor");
                 return;
@@ -83,6 +96,7 @@ export const SignUp = (props) => {
                 apellido: apellido,
                 email: email,
                 password: password,
+                cedula: cedula,
               });
               if (success) {
                 navigate("/log-in");
