@@ -93,7 +93,7 @@ export const Navbar = () => {
               aria-label="Search"
             />
             <Link to="/sign-up">
-              <button className="btn btn-danger">{"Sign Un Here"}</button>
+              <button className="btn btn-danger">{"Sign Up Here"}</button>
             </Link>
             <Link to="/log-in">
               <button className="btn btn-danger">{"logIn Here"}</button>
@@ -101,8 +101,9 @@ export const Navbar = () => {
           </form>
           <button
             className="btn btn-danger"
-            onClick={() => {
+            onClick={(e) => {
               localStorage.clear();
+              console.log("hola");
             }}
           >
             {"Hola soy un boton"}{" "}
