@@ -14,6 +14,11 @@
 
 1. `$pipenv install flask-jwt-extended`
 
+### En caso de que se borre en env el logo pegar esto en env.
+
+1. `LOGO=https://res.cloudinary.com/dn7fj8zhu/image/upload/v1659050255/Logotipo_formal_escudo_le%C3%B3n_seguro_borravino-2_g8icis.png`
+   `
+
 ## Integrantes
 
 - Alberto Moreno [alb3rnaru](https://github.com/Alb3rnaru)

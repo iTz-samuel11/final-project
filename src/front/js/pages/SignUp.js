@@ -113,12 +113,13 @@ export const SignUp = (props) => {
         <h1>Seguros Bonpland</h1>
         <img
           style={{
-            height: "200px",
-            width: "200px",
+            height: "400px",
+            width: "350x",
             margin: "30%",
             marginTop: "10%",
+            borderRadius: "55px",
           }}
-          src="https://verdeyazul.diarioinformacion.com/wp-content/uploads/2021/05/Falco-Pellegrino-Falco-peregrinus-copertina-1024x576.jpg"
+          src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1659050255/Logotipo_formal_escudo_le%C3%B3n_seguro_borravino-2_g8icis.png"
         />
       </div>
     </div>
