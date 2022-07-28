@@ -3,7 +3,7 @@
 1. `$ pipenv install`
 2. `$ pipenv run migrate` (skip if you have not made changes to the models on the `./src/api/models.py`)
 3. `$ pipenv run upgrade`
-4. `$ pipenv run start`
+4. `$ pipenv run upgrade`
 
 ### Correr el servidor en la nube (debes hacer primero los pasos de arriba):
 
