@@ -51,7 +51,7 @@ export const LogIn = (props) => {
           }}
         >
           {" "}
-          {"Login"}{" "}
+          {"Ingrese sesión"}{" "}
         </button>
       </div>
     </div>
