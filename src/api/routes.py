@@ -41,15 +41,6 @@ def handle_token():
     return jsonify(user.serialize()), 201
 
 
-@create.route("/private", methods=["GET"])
-@jwt_required()
-def private():
-    current_user_id = get_jwt_identity()
-    user=User.query.get(current_user_id)
-
-    return jsonify({"id": user.id, "email":user.emai}),200
-
-
 @create.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
 

@@ -33,7 +33,6 @@ const Layout = () => {
             <Route element={<SegurosBonpland />} path="/segurosBonpland" />
             <Route element={<SolicitudAval />} path="//solicitud-aval" />
             <Route element={<h1>Not found!</h1>} />
-            <Route element={<Private />} path="/private" />
           </Routes>
           {/* <Footer /> */}
         </ScrollToTop>
