@@ -11,3 +11,17 @@
     1;
   border-bottom: #fff8f9;
 }
+
+#usoPersonal {
+  margin: 4%;
+  margin-top: 0.5%;
+}
+
+#externo {
+  margin: 4%;
+  margin-top: 0.5%;
+}
+
+.form-control {
+  border: 1px solid #545454;
+}
