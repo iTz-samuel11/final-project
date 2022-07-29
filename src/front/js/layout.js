@@ -12,7 +12,6 @@ import { SignUp } from "./pages/SignUp";
 import { LogIn } from "./pages/LogIn";
 import { SegurosBonpland } from "./pages/Seguros";
 import { SolicitudAval } from "./pages/SolicitudAval";
-import { Private } from "./pages/Private";
 
 //create your first component
 const Layout = () => {

@@ -30,7 +30,7 @@ export const SegurosBonpland = () => {
             </div>
           </div>
           <div
-            className="card"
+            className="card-btn usar salud-card"
             style={{ width: "18rem", borderRadius: "70px" }}
           >
             <img src="..." className="card-img-top" alt="..." />
