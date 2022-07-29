@@ -12,6 +12,7 @@ import { SignUp } from "./pages/SignUp";
 import { LogIn } from "./pages/LogIn";
 import { SegurosBonpland } from "./pages/Seguros";
 import { SolicitudAval } from "./pages/SolicitudAval";
+import { SolicitudPoliza } from "./pages/SolicitarPoliza";
 
 //create your first component
 const Layout = () => {
@@ -31,6 +32,7 @@ const Layout = () => {
             <Route element={<LogIn />} path="/log-in" />
             <Route element={<SegurosBonpland />} path="/segurosBonpland" />
             <Route element={<SolicitudAval />} path="//solicitud-aval" />
+            <Route element={<SolicitudPoliza />} path="/solicitar-poliza" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           {/* <Footer /> */}
