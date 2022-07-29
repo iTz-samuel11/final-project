@@ -6,6 +6,7 @@ from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required, get_jwt_identity
 create = Blueprint('create', __name__)
+take = Blueprint('take', __name__)
 
 @create.route('/user', methods=['POST'])
 def user():
@@ -49,3 +50,13 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@take.route('/poliza', methods={'GET'})
+@jwt_required()
+def get_poliza(): 
+    user_id = get_jwt_identity()
+    user =  User.query.get(user_id)
+
+    return jsonify({"id": user.id, "email": user.email, "poliza": user.poliza }), 200
+    
+

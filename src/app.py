@@ -8,7 +8,7 @@ from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
 from api.models import db
-from api.routes import create
+from api.routes import create, take
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
@@ -36,21 +36,18 @@ db.init_app(app)
 # Allow CORS requests to this API
 CORS(app)
 
-# add the admin
 setup_admin(app)
 
-# add the admin
 setup_commands(app)
 
-# Add all endpoints form the API with a "api" prefix
+# Blueprint
 app.register_blueprint(create, url_prefix='/create')
+app.register_blueprint(take, url_prefix='/take')
 
-# Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)
 def handle_invalid_usage(error):
     return jsonify(error.to_dict()), error.status_code
 
-# generate sitemap with all your endpoints
 @app.route('/')
 def sitemap():
     if ENV == "development":
@@ -67,7 +64,6 @@ def serve_any_other_file(path):
     return response
 
 
-# this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))
     app.run(host='0.0.0.0', port=PORT, debug=True)

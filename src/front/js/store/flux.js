@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       message: null,
+      poliza: undefined,
       demo: [
         {
           title: "FIRST",
@@ -57,24 +58,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
       },
-      private: async () => {
+      poliza: async () => {
         const token = localStorage.getItem("jwt-token");
-        const response = await fetch(
-          `${process.env.BACKEND_URL}/create/private`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await fetch(`${process.env.BACKEND_URL}/take/poliza`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
         if (!response.ok)
           throw Error("There was a problem in the login request");
         var data = await response.json();
         console.log("This is the data you requested", data);
         setStore({
-          private: data,
+          poliza: data,
         });
         return data;
       },
