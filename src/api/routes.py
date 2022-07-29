@@ -41,6 +41,30 @@ def handle_token():
 
     return jsonify(user.serialize()), 201
 
+@take.route('/poliza', methods=['GET'])
+@jwt_required()
+def get_poliza(): 
+    user_id = get_jwt_identity()
+    user =  User.query.get(user_id)
+
+    return jsonify({"id": user.id, "email": user.email, "poliza": user.poliza }), 200
+
+@take.route('/verification', methods=['POST'])
+def verification():
+    body = request.json
+    email = body.get('email', None)
+    password = body.get('password', None)
+
+    user=User.query.filter_by(email=email).one_or_none()
+    if user is None: return jsonify(
+        "Verifique el payload"
+    ), 400
+
+    _verification = user.check_password(password)
+    if not _verification:
+        return jsonify ("revise el paiload"), 400
+
+    return jsonify("listo"),200
 
 @create.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -50,13 +74,3 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
-
-@take.route('/poliza', methods={'GET'})
-@jwt_required()
-def get_poliza(): 
-    user_id = get_jwt_identity()
-    user =  User.query.get(user_id)
-
-    return jsonify({"id": user.id, "email": user.email, "poliza": user.poliza }), 200
-    
-

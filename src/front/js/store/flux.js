@@ -58,6 +58,30 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
       },
+      verification: async (requestBody) => {
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/take/verification`,
+            {
+              method: "POST",
+              body: JSON.stringify(requestBody),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (response.status === 400) {
+            throw "Invalid email or password format";
+          }
+          const data = await response.json();
+          localStorage.setItem("jwt-token", data.token);
+
+          return data;
+        } catch (error) {
+          console.log(Error);
+          return false;
+        }
+      },
       poliza: async () => {
         const token = localStorage.getItem("jwt-token");
         const response = await fetch(`${process.env.BACKEND_URL}/take/poliza`, {
