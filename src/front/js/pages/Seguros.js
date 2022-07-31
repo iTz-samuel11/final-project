@@ -10,60 +10,13 @@ import { NavPrincipal } from "../component/NavPrincipal";
 
 export const SegurosBonpland = () => {
   return (
-    <React.Fragment>
-      <NavPrincipal />
-      <div className="container">
-        <div className="d-flex">
-          <div
-            className="card"
-            style={{ width: "18rem", borderRadius: "70px" }}
-          >
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <FontAwesomeIcon
-                icon={faHospital}
-                style={{ height: "200px", color: "red" }}
-              />
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-          </div>
-          <div
-            className="card-btn usar salud-card"
-            style={{ width: "18rem", borderRadius: "70px" }}
-          >
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <FontAwesomeIcon
-                icon={faTruckMedical}
-                style={{ height: "200px", color: "red" }}
-              />
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-          </div>
-          <div
-            className="card"
-            style={{ width: "18rem", borderRadius: "70px" }}
-          >
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <FontAwesomeIcon
-                icon={faUserDoctor}
-                style={{ height: "200px", color: "red" }}
-              />
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </React.Fragment>
+    <button
+      className="btn btn-danger me-4"
+      onClick={(e) => {
+        navigate("/SolicitudPoliza");
+      }}
+    >
+      {"Comprar poliza"}
+    </button>
   );
 };
