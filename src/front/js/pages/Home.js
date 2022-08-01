@@ -3,15 +3,24 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Navbar } from "../component/navbar";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
 
   return (
     <div>
       <Navbar />
       <div className="text-center mt-5">
-        <h1>Hello Rigo!!</h1>
+        <button
+          className="btn btn-danger me-4"
+          onClick={(e) => {
+            navigate("/solicitar-poliza");
+          }}
+        >
+          {"Solicitar poliza"}
+        </button>
         <p>
           <img src="https://res.cloudinary.com/demo/video/upload/g_auto/eo_7/w_250,h_250,c_fill,r_max,e_loop/q_auto:eco/ac_none/w_200,f_auto,q_auto/v1603292662/user_video.gif" />
         </p>
