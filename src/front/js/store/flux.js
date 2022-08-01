@@ -74,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             throw "Invalid email or password format";
           }
           const data = await response.json();
-          localStorage.setItem("jwt-token", data.token);
+          // localStorage.setItem("jwt-token", data.token);
 
           return data;
         } catch (error) {

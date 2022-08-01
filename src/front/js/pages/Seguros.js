@@ -1,20 +1,22 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHospital,
-  faTruckMedical,
-  faUserDoctor,
-} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faHospital,
+//   faTruckMedical,
+//   faUserDoctor,
+// } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { NavPrincipal } from "../component/NavPrincipal";
 
 export const SegurosBonpland = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <button
         className="btn btn-danger me-4"
         onClick={(e) => {
-          navigate("/SolicitudPoliza");
+          navigate("/solicitar-poliza");
         }}
       >
         {"Comprar poliza"}
