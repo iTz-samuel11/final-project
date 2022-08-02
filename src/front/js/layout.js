@@ -12,7 +12,7 @@ import { SignUp } from "./pages/SignUp";
 import { LogIn } from "./pages/LogIn";
 import { SegurosBonpland } from "./pages/Seguros";
 import { SolicitudAval } from "./pages/SolicitudAval";
-import { SolicitudPoliza } from "./pages/SolicitarPoliza";
+import { Solicitud } from "./pages/Solicitud";
 import { Verification } from "./pages/Verification";
 
 //create your first component
@@ -34,7 +34,7 @@ const Layout = () => {
             <Route element={<SegurosBonpland />} path="/segurosBonpland" />
             <Route element={<SolicitudAval />} path="//solicitud-aval" />
             <Route element={<Verification />} path="/verification" />
-            <Route element={<SolicitudPoliza />} path="/solicitar-poliza" />
+            <Route element={<Solicitud />} path="/solicitud" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           {/* <Footer /> */}

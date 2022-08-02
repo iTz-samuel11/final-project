@@ -1,47 +1,67 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Nav } from "../component/Nav";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import emailjs from "emailjs-com";
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
 export const Verification = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const form = useRef();
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  useEffect(() => {
+    actions.poliza();
+  }, [actions.poliza]);
+  const poliza = store.poliza && store.poliza.poliza;
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    const success = await actions.verification({
+      email: email,
+      password: password,
+    });
+    if (!success) {
+      alert("verifique los datos");
+      return;
+    } else {
+      emailjs
+        .sendForm(
+          "service_7a21d88",
+          "template_2d7b76r",
+          form.current,
+          "BVEQ65oAn7GRS9-Vk"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+      navigate("/solicitud");
+    }
+  };
+
   return (
-    <React.Fragment>
-      <Nav />
-      <div>
-        <form>
-          <input
-            type="email"
-            placeholder="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-          <input
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </form>
-      </div>
-      <div>
-        <button
-          onClick={async (e) => {
-            const success = await actions.verification({
-              email: email,
-              password: password,
-            });
-            if (success) {
-              navigate("/solicitar-poliza");
-              return;
-            }
-            alert("something happened while creating the user");
-          }}
-        ></button>
-      </div>
-    </React.Fragment>
+    <form ref={form} onSubmit={sendEmail}>
+      <input name="poliza" type="hidden" value={poliza} />
+      <label>Name</label>
+      <input type="text" name="name" />
+      <label>Email</label>
+      <input
+        type="email"
+        name="user_email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <label>password</label>
+      <input
+        type="password"
+        placeholder="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      ></input>
+      <input type="submit" value="Send" />
+    </form>
   );
 };
