@@ -16,7 +16,7 @@ export const Home = () => {
         <button
           className="btn btn-danger me-4 btn-lg"
           onClick={(e) => {
-            navigate("/solicitar-poliza");
+            navigate("/verification");
           }}
         >
           {"Solicitar poliza"}
@@ -28,7 +28,7 @@ export const Home = () => {
               width: "200x",
               margin: "20%",
               marginTop: "2%",
-              marginRight: "80%",
+              marginRight: "100%",
             }}
             src={poliza}
           />

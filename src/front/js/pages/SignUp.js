@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import logo from "../../../../docs/assets/Logotipo.png";
 
 export const SignUp = (props) => {
   const [nombre, setNombre] = useState("");
@@ -119,7 +120,7 @@ export const SignUp = (props) => {
             marginTop: "10%",
             borderRadius: "55px",
           }}
-          src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1659050255/Logotipo_formal_escudo_le%C3%B3n_seguro_borravino-2_g8icis.png"
+          src={logo}
         />
       </div>
     </div>
