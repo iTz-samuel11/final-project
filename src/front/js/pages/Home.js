@@ -4,6 +4,7 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Navbar } from "../component/navbar";
 import { useNavigate } from "react-router-dom";
+import poliza from "../../../../docs/assets/Solicitudpoliza.png";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -22,7 +23,7 @@ export const Home = () => {
           {"Solicitar poliza"}
         </button>
         <p>
-          <img src="https://res.cloudinary.com/demo/video/upload/g_auto/eo_7/w_250,h_250,c_fill,r_max,e_loop/q_auto:eco/ac_none/w_200,f_auto,q_auto/v1603292662/user_video.gif" />
+          <img src={poliza} />
         </p>
         <div className="alert alert-info">
           "Loading message from the backend (make sure your python backend is
