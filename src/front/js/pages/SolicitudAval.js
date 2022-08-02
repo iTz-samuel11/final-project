@@ -38,7 +38,7 @@ export const SolicitudAval = () => {
               aria-required="true"
             />
             <h3>{"Informe de la Solicitud"}</h3>
-            <input
+            <textarea
               type="text"
               className="form-control m-4"
               style={{ height: "80px" }}

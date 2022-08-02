@@ -41,7 +41,6 @@ export const Verification = () => {
       navigate("/solicitud");
     }
   };
-
   return (
     <form ref={form} onSubmit={sendEmail}>
       <input name="poliza" type="hidden" value={poliza} />
