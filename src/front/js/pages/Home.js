@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Navbar } from "../component/navbar";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +14,7 @@ export const Home = () => {
       <Navbar />
       <div className="text-center mt-5">
         <button
-          className="btn btn-danger me-4"
+          className="btn btn-danger me-4 btn-lg"
           onClick={(e) => {
             navigate("/solicitar-poliza");
           }}
@@ -23,7 +22,16 @@ export const Home = () => {
           {"Solicitar poliza"}
         </button>
         <p>
-          <img src={poliza} />
+          <img
+            style={{
+              height: "500px",
+              width: "200x",
+              margin: "20%",
+              marginTop: "2%",
+              marginRight: "80%",
+            }}
+            src={poliza}
+          />
         </p>
         <div className="alert alert-info">
           "Loading message from the backend (make sure your python backend is
