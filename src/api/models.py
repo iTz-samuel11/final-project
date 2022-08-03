@@ -16,13 +16,15 @@ class User(db.Model):
     password_hash = db.Column(db.String(256), nullable=False, default="default")
     user_salt = db.Column(db.String(120), nullable=False)
     client = db.Column(db.Boolean(), unique=False, nullable=False)
+    saldo = db.Column(db.Integer)
 
-    def __init__(self,email,password,nombre,apellido,cedula):
+    def __init__(self,email,password,nombre,apellido,cedula, saldo):
         self.email=email
         self.client= False
         self.nombre=nombre
         self.apellido=apellido
         self.cedula = cedula
+        self.saldo = 0
         self.poliza = self.gererate_poliza(cedula)
         self.user_salt = b64encode(os.urandom(32)).decode("utf-8")
         self.set_password(password)
@@ -39,7 +41,11 @@ class User(db.Model):
     def gererate_poliza(self, cedula):
         poliz = randint(0, 99)
         return f'{cedula}{poliz}'
-
+    
+    def get_member(self, id):
+        for user in self.cedula:
+            if user['cedula'] == self.cedula:
+                return user 
 
     def serialize(self):
         return {
@@ -47,5 +53,6 @@ class User(db.Model):
             "email": self.email,
             "name":self.nombre,
             "lastname": self.apellido,
-            "cedula": self.cedula
+            "cedula": self.cedula,
+            "saldo": self.saldo
         }
