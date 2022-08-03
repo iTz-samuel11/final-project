@@ -22,17 +22,21 @@ def user():
         new_user=User(email, password, name, lastname, cedula, saldo)
         return jsonify(new_user.serialize()),201
 
-@create.route('user/<int:user_cedula>', methods=['GET', 'PATCH'])
+@create.route('user/<int:user_cedula>', methods=['GET', 'PUT'])
 def saldo(user_cedula):
     if request.method == 'GET':
         user = User.query.filter_by(cedula=user_cedula).one_or_none()  
         
         return jsonify(user.serialize()), 200
-    # else:
-    #     body= request.json
-    #     user = User.query.filter_by(cedula=user_cedula).one_or_none()
-    #     saldo = body.get('saldo', None)
-    #     user_saldo = User(saldo = body['saldo'])
+    else:
+        user = User.query.filter_by(cedula=user_cedula).one_or_none()
+
+        saldo = request.json["saldo"]  
+        user.saldo = saldo
+
+        db.session.commit()
+
+        return jsonify("listo")
 
 @create.route("/token", methods=["POST"])
 def handle_token():

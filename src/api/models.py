@@ -42,10 +42,9 @@ class User(db.Model):
         poliz = randint(0, 99)
         return f'{cedula}{poliz}'
     
-    def get_member(self, id):
-        for user in self.cedula:
-            if user['cedula'] == self.cedula:
-                return user 
+    # def add_saldo(cedula):
+
+
 
     def serialize(self):
         return {
