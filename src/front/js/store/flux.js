@@ -34,6 +34,23 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("ahora si");
         }
       },
+      addSaldo: async (requestBody) => {
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/create/user/${requestBody.cedula}`,
+            {
+              method: "PUT",
+              body: JSON.stringify(requestBody.saldo),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          return response.status === 201;
+        } catch (error) {
+          console.log(`no pude agregar saldo por ${error}`);
+        }
+      },
       logIn: async (requestBody) => {
         try {
           const response = await fetch(
