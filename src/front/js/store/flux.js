@@ -40,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             `${process.env.BACKEND_URL}/create/user/${requestBody.cedula}`,
             {
               method: "PUT",
-              body: JSON.stringify(requestBody.saldo),
+              body: JSON.stringify(requestBody),
               headers: {
                 "Content-Type": "application/json",
               },
