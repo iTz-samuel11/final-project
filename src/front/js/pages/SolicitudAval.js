@@ -25,7 +25,7 @@ export const SolicitudAval = () => {
           <form>
             <h3>{"Numero de Poliza"}</h3>
             <input
-              type="number"
+              type="text"
               className="form-control m-4"
               placeholder="Poliza"
               value={poliza}
@@ -34,16 +34,16 @@ export const SolicitudAval = () => {
             />
             <h3>{"fecha"}</h3>
             <input
-              type="number"
+              type="text"
               className="form-control m-4"
-              placeholder="C.I."
+              placeholder="fecha"
               value={fecha}
               onChange={(e) => setFecha(e.target.value)}
               aria-required="true"
             />
             <h3>{"Presupuesto a Solicitar"}</h3>
             <input
-              type="number"
+              type="text"
               className="form-control m-4"
               placeholder="Presupuesto"
               value={presupuesto}

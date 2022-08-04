@@ -98,7 +98,7 @@ def ask_aval():
     poliza = User.query.filter_by(poliza=poliza).one_or_none()
     user_id = poliza.id
     saldo = poliza.saldo
-    _presupuesto = User.subtract_saldo( saldo, presupuesto)
+    _presupuesto = User.subtract_saldo( saldo, int(presupuesto))
 
     if _presupuesto <= 0:
         return jsonify("no tiene suficiente presupuesto"), 400
