@@ -2,11 +2,12 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, CartaAval
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required, get_jwt_identity
 create = Blueprint('create', __name__)
 take = Blueprint('take', __name__)
+ask = Blueprint('ask', __name__)
 
 @create.route('/user', methods=['POST'])
 def user():
@@ -81,6 +82,22 @@ def verification():
         return jsonify ("revise el paiload"), 400
 
     return jsonify("listo"),200
+
+@ask.route('/aval', methods=['POST'])
+def ask_aval():
+    body= request.json
+    poliza=body.get('poliza', None)
+    motivo= body.get('motivo', None)
+    lugar = body.get('lugar', None)
+    fecha = body.get('fecha', None)
+    poliza = User.query.filter_by(poliza=poliza).one_or_none()
+    user_id = poliza.id
+
+    if poliza is None:
+        return jsonify(" no hay poliza disponible...."),400
+
+    new_aval = CartaAval(motivo, lugar, fecha, user_id)
+    return jsonify(new_aval.serialize()),201
 
 @create.route('/hello', methods=['POST', 'GET'])
 def handle_hello():

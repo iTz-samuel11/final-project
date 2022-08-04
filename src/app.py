@@ -8,7 +8,7 @@ from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
 from api.models import db
-from api.routes import create, take
+from api.routes import create, take, ask
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
@@ -43,6 +43,7 @@ setup_commands(app)
 # Blueprint
 app.register_blueprint(create, url_prefix='/create')
 app.register_blueprint(take, url_prefix='/take')
+app.register_blueprint(ask, url_prefix='/ask')
 
 @app.errorhandler(APIException)
 def handle_invalid_usage(error):

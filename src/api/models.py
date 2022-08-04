@@ -54,23 +54,25 @@ class User(db.Model):
             "saldo": self.saldo
         }
 
-# class Solicitudes(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     userId = db.Column(db.Integer, db.ForeignKey('user.id'))
-#     cartaAvalId = db.Column(db.Integer, db.ForeignKey('cartaAval.id'))
-#     claveId= db.Column(db.Integer, db.ForeignKey('clave.id'))
-#     fecha= db.Column(db.Integer)
+class CartaAval(db.Model):
+    id= db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    motivo = db.Column(db.String(600), nullable=False)
+    lugar = db.Column(db.String(80), nullable=False)
+    fecha = db.Column(db.Integer, nullable=False)
 
-# class CartaAval(db.Model):
-#     id= db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-#     motivo = db.Column(db.String(600), nullable=False)
-#     lugar = db.Column(db.String(80), nullable=False)
-#     # fecha = db.Column(db.)
+    def __init__(self, motivo, lugar, fecha, user_id):
+        self.motivo = motivo
+        self.lugar = lugar
+        self.fecha = fecha
+        self.user_id = user_id
+        db.session.add(self)
+        db.session.commit()
 
-#     def __init__(self, motivo, lugar):
-#         self.motivo = motivo
-#         self.lugar = lugar
-
-#         db.session.add(self)
-#         db.session.commit()
+    def serialize(self):
+        return{
+            "motivo": self.motivo,
+            "lugar": self.lugar,
+            "fecha": self.fecha,
+            "user_id": self.user_id
+        }
