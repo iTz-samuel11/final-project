@@ -64,7 +64,7 @@ class CartaAval(db.Model):
     motivo = db.Column(db.String(600), nullable=False)
     lugar = db.Column(db.String(80), nullable=False)
     fecha = db.Column(db.Integer, nullable=False)
-    uso_personal = db.Column(db.Boolean(), nullable=False)
+    uso_personal = db.Column(db.Boolean())
 
     def __init__(self, motivo, lugar, fecha, user_id, uso_personal):
         self.motivo = motivo

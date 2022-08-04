@@ -8,6 +8,7 @@ export const SolicitudAval = () => {
   const [motivo, setMotivo] = useState("");
   const [lugar, setLugar] = useState("");
   const [fecha, setFecha] = useState("");
+  const [usoPersonal, setUsoPersonal] = useState(true);
   const { store, actions } = useContext(Context);
   return (
     <React.Fragment>
@@ -79,6 +80,7 @@ export const SolicitudAval = () => {
                   motivo: motivo,
                   lugar: lugar,
                   fecha: fecha,
+                  usoPersonal: usoPersonal,
                 });
                 if (success) {
                   alert("listo el mandao");
@@ -96,31 +98,67 @@ export const SolicitudAval = () => {
               type="number"
               className="form-control m-4"
               placeholder="Poliza"
-              aria-required="true"
-            />
-            <h3>{"Cedula de beneficario"}</h3>
-            <input
-              type="number"
-              className="form-control m-4"
-              placeholder="C.I. beneficiario"
+              value={poliza}
+              onChange={(e) => setPoliza(e.target.value)}
               aria-required="true"
             />
             <h3>{"Presupuesto a Solicitar"}</h3>
             <input
               type="number"
               className="form-control m-4"
+              placeholder="C.I. beneficiario"
+              value={presupuesto}
+              onChange={(e) => setPresupuesto(e.target.value)}
+              aria-required="true"
+            />
+            <h3>{"Fecha"}</h3>
+            <input
+              type="number"
+              className="form-control m-4"
               placeholder="Presupuesto"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
               aria-required="true"
             />
             <h3>{"Informe de Solicitud"}</h3>
             <input
-              type="text"
+              type="textarea"
               className="form-control m-4"
               style={{ height: "80px" }}
               placeholder="Informe"
+              value={motivo}
+              onChange={(e) => setMotivo(e.target.value)}
+            />
+            <h3>{"Lugar"}</h3>
+            <input
+              type="text"
+              className="form-control m-4"
+              style={{ height: "80px" }}
+              placeholder="Lugar"
+              value={lugar}
+              onChange={(e) => setLugar(e.target.value)}
             />
             <h3>{"Informe del Doctor"}</h3>
             <input type="file" name="file" />
+            <button
+              className="btn btn-dark"
+              onClick={async () => {
+                setUsoPersonal(false);
+                const success = await actions.solicitudAval({
+                  poliza: poliza,
+                  presupuesto: presupuesto,
+                  motivo: motivo,
+                  lugar: lugar,
+                  fecha: fecha,
+                  usoPersonal: usoPersonal,
+                });
+                if (success) {
+                  alert("listo el mandao");
+                  return;
+                }
+                // alert("no pude hacerlo");
+              }}
+            />
           </form>
         </div>
       </div>
