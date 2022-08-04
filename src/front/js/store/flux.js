@@ -76,7 +76,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           const data = await response.json();
           localStorage.setItem("jwt-token", data.token);
-          // localStorage.setItem("User", store.user);
+          localStorage.setItem("user", data.user);
+          setStore({
+            user: data.user,
+          });
           return data;
         } catch (error) {
           console.log(Error);

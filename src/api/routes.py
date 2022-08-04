@@ -53,10 +53,10 @@ def handle_token():
         return jsonify ("credenciales invalidas"), 400
     auth=create_access_token(identity=user.id)
     return jsonify ({
-        "token": auth
+        "token": auth,
+        "user": user.serialize()
     }), 200
 
-    return jsonify(user.serialize()), 201
 
 @take.route('/poliza', methods=['GET'])
 @jwt_required()
