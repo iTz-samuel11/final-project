@@ -80,7 +80,7 @@ export const SolicitudAval = () => {
                   motivo: motivo,
                   lugar: lugar,
                   fecha: fecha,
-                  usoPersonal: usoPersonal,
+                  uso_personal: usoPersonal,
                 });
                 if (success) {
                   alert("listo el mandao");
@@ -142,6 +142,7 @@ export const SolicitudAval = () => {
             <input type="file" name="file" />
             <button
               className="btn btn-dark"
+              type="button"
               onClick={async () => {
                 setUsoPersonal(false);
                 const success = await actions.solicitudAval({
@@ -150,7 +151,7 @@ export const SolicitudAval = () => {
                   motivo: motivo,
                   lugar: lugar,
                   fecha: fecha,
-                  usoPersonal: usoPersonal,
+                  uso_personal: usoPersonal,
                 });
                 if (success) {
                   alert("listo el mandao");
