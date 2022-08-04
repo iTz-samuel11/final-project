@@ -87,16 +87,26 @@ def verification():
 def ask_aval():
     body= request.json
     poliza=body.get('poliza', None)
+    presupuesto=body.get('presupuesto', None)
     motivo= body.get('motivo', None)
     lugar = body.get('lugar', None)
     fecha = body.get('fecha', None)
+    
+    if poliza is None or presupuesto is None:
+        return jsonify(" no mando el payload requerido..."),400
+    
     poliza = User.query.filter_by(poliza=poliza).one_or_none()
     user_id = poliza.id
+    saldo = poliza.saldo
+    _presupuesto = User.subtract_saldo( saldo, presupuesto)
 
-    if poliza is None:
-        return jsonify(" no hay poliza disponible...."),400
+    if _presupuesto <= 0:
+        return jsonify("no tiene suficiente presupuesto"), 400
 
+    poliza.saldo= _presupuesto
+    db.session.commit()
     new_aval = CartaAval(motivo, lugar, fecha, user_id)
+    
     return jsonify(new_aval.serialize()),201
 
 @create.route('/hello', methods=['POST', 'GET'])

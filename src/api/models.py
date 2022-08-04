@@ -42,7 +42,11 @@ class User(db.Model):
         poliz = randint(0, 99)
         return f'{cedula}{poliz}'
     
-    # def add_saldo(cedula):
+    def subtract_saldo(saldo, subtract):
+        _saldo = saldo-subtract
+        
+        return _saldo
+        
 
     def serialize(self):
         return {
