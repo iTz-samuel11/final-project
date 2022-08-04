@@ -64,12 +64,14 @@ class CartaAval(db.Model):
     motivo = db.Column(db.String(600), nullable=False)
     lugar = db.Column(db.String(80), nullable=False)
     fecha = db.Column(db.Integer, nullable=False)
+    uso_personal = db.Column(db.Boolean(), nullable=False)
 
-    def __init__(self, motivo, lugar, fecha, user_id):
+    def __init__(self, motivo, lugar, fecha, user_id, uso_personal):
         self.motivo = motivo
         self.lugar = lugar
         self.fecha = fecha
         self.user_id = user_id
+        self.uso_personal = uso_personal
         db.session.add(self)
         db.session.commit()
 
@@ -78,5 +80,6 @@ class CartaAval(db.Model):
             "motivo": self.motivo,
             "lugar": self.lugar,
             "fecha": self.fecha,
+            "uso_personal": self.uso_personal,
             "user_id": self.user_id
         }

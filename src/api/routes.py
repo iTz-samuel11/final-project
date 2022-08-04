@@ -91,6 +91,7 @@ def ask_aval():
     motivo= body.get('motivo', None)
     lugar = body.get('lugar', None)
     fecha = body.get('fecha', None)
+    uso_personal = body.get('uso_personal', None)
     
     if poliza is None or presupuesto is None:
         return jsonify(" no mando el payload requerido..."),400
@@ -105,7 +106,7 @@ def ask_aval():
 
     poliza.saldo= _presupuesto
     db.session.commit()
-    new_aval = CartaAval(motivo, lugar, fecha, user_id)
+    new_aval = CartaAval(motivo, lugar, fecha, user_id, uso_personal)
     
     return jsonify(new_aval.serialize()),201
 
