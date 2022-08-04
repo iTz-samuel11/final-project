@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           const data = await response.json();
           localStorage.setItem("jwt-token", data.token);
-
+          // localStorage.setItem("User", store.user);
           return data;
         } catch (error) {
           console.log(Error);
@@ -124,6 +124,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           poliza: data,
         });
         return data;
+      },
+      solicitudAval: async (requestBody) => {
+        try {
+          const response = await fetch(`${process.env.BACKEND_URL}/ask/aval`, {
+            method: "POST",
+            body: JSON.stringify(requestBody),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          return response.ok;
+        } catch (error) {
+          console.log("ahora si");
+        }
       },
     },
   };
