@@ -44,8 +44,6 @@ class User(db.Model):
     
     # def add_saldo(cedula):
 
-
-
     def serialize(self):
         return {
             "id": self.id,
@@ -55,3 +53,24 @@ class User(db.Model):
             "cedula": self.cedula,
             "saldo": self.saldo
         }
+
+# class Solicitudes(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     userId = db.Column(db.Integer, db.ForeignKey('user.id'))
+#     cartaAvalId = db.Column(db.Integer, db.ForeignKey('cartaAval.id'))
+#     claveId= db.Column(db.Integer, db.ForeignKey('clave.id'))
+#     fecha= db.Column(db.Integer)
+
+# class CartaAval(db.Model):
+#     id= db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+#     motivo = db.Column(db.String(600), nullable=False)
+#     lugar = db.Column(db.String(80), nullable=False)
+#     # fecha = db.Column(db.)
+
+#     def __init__(self, motivo, lugar):
+#         self.motivo = motivo
+#         self.lugar = lugar
+
+#         db.session.add(self)
+#         db.session.commit()

@@ -100,7 +100,7 @@ export const SignUp = (props) => {
                 cedula: cedula,
               });
               if (success) {
-                navigate("/log-in");
+                navigate("/pagopoliza");
                 return;
               }
               alert("no pude crear el usuario");

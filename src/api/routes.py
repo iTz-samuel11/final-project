@@ -10,17 +10,17 @@ take = Blueprint('take', __name__)
 
 @create.route('/user', methods=['POST'])
 def user():
-        body= request.json
-        email=body.get('email', None)
-        password= body.get('password', None)
-        cedula = body.get('cedula', None)
-        name= body.get('nombre', None)
-        lastname= body.get('apellido', None)
-        saldo = 0
-        if email is None or password is None or name is None or lastname is None or cedula is None:
-            return jsonify(" revise el payload de su solicitud...."),400
-        new_user=User(email, password, name, lastname, cedula, saldo)
-        return jsonify(new_user.serialize()),201
+    body= request.json
+    email=body.get('email', None)
+    password= body.get('password', None)
+    cedula = body.get('cedula', None)
+    name= body.get('nombre', None)
+    lastname= body.get('apellido', None)
+    saldo = 0
+    if email is None or password is None or name is None or lastname is None or cedula is None:
+        return jsonify(" revise el payload de su solicitud...."),400
+    new_user=User(email, password, name, lastname, cedula, saldo)
+    return jsonify(new_user.serialize()),201
 
 @create.route('user/<int:user_cedula>', methods=['GET', 'PUT'])
 def saldo(user_cedula):

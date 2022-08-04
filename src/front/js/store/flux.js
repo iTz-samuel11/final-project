@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       message: null,
       poliza: undefined,
+      user: undefined,
       demo: [
         {
           title: "FIRST",
@@ -29,6 +30,13 @@ const getState = ({ getStore, getActions, setStore }) => {
               },
             }
           );
+          const user = await response.json();
+          if (response.status === 201) {
+            setStore({
+              user: user,
+            });
+            return true;
+          }
           return response.status === 201;
         } catch (error) {
           console.log("ahora si");
@@ -46,7 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               },
             }
           );
-          return response.status === 201;
+          return response.ok;
         } catch (error) {
           console.log(`no pude agregar saldo por ${error}`);
         }

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Pagos = () => {
@@ -9,22 +10,10 @@ export const Pagos = () => {
   const [plan, setPlan] = useState("");
   const [seguro, setSeguro] = useState("");
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       <p className="fs-1">Tipo de pago</p>
-      <form>
-        <h4>{"cedula"}</h4>
-        <input
-          type="text"
-          name="fname"
-          min="3"
-          className="form-control m-1"
-          value={cedula}
-          placeholder="cedula"
-          onChange={(e) => setCedula(e.target.value)}
-          aria-required="true"
-        />
-      </form>
       <button
         className=" col-3 btn btn-dark m-2"
         onClick={() => {
@@ -53,16 +42,21 @@ export const Pagos = () => {
         {"plan gold '10000$'"}
       </button>
       <button
-        onClick={async () => {
-          if (plan === 0 || cedula === 0) {
+        type="button"
+        className="btn btn-light"
+        onClick={async (e) => {
+          if (plan === "") {
             alert("seleccione algun plan");
+            return;
           }
           const success = await actions.addSaldo({
-            cedula: cedula,
+            cedula: store.user.cedula,
             saldo: plan,
           });
           if (success) {
+            navigate("/log-in");
             console.log("listo, revisa la base de datos");
+            return;
           }
         }}
       >
