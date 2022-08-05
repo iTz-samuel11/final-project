@@ -22,7 +22,7 @@ export const SolicitudAval = () => {
       motivo: motivo,
       lugar: lugar,
       fecha: fecha,
-      usoPersonal: usoPersonal,
+      uso_personal: usoPersonal,
     });
     if (!succes) {
       alert("No se envió");
@@ -111,7 +111,7 @@ export const SolicitudAval = () => {
           </form>
         </div>
         <div className="tab-pane" id="externo">
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <h3>{"Numero de Poliza"}</h3>
             <input
               type="number"
@@ -162,26 +162,7 @@ export const SolicitudAval = () => {
             />
             <h3>{"Informe del Doctor"}</h3>
             <input type="file" name="file" />
-            <button
-              className="btn btn-dark"
-              type="button"
-              onClick={async () => {
-                setUsoPersonal(false);
-                const success = await actions.solicitudAval({
-                  poliza: poliza,
-                  presupuesto: presupuesto,
-                  motivo: motivo,
-                  lugar: lugar,
-                  fecha: fecha,
-                  uso_personal: usoPersonal,
-                });
-                if (success) {
-                  alert("listo el mandao");
-                  return;
-                }
-                // alert("no pude hacerlo");
-              }}
-            />
+            <button className="btn btn-dark" type="submit" value="send" />
           </form>
         </div>
       </div>
