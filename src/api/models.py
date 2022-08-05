@@ -3,6 +3,7 @@ from base64 import b64encode
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from random import randint
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -90,12 +91,12 @@ class Clave(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     lugar = db.Column(db.String(80), nullable=False)
-    # fecha = db.Column(db.Integer, nullable=False)
+    fecha = db.Column(db.Integer, nullable=False)
     poliza= db.Column(db.String(10), nullable=False)
 
     def __init__(self, lugar, user_id, poliza):
         self.lugar = lugar
-        # self.fecha = fecha
+        self.fecha = datetime()
         self.user_id = user_id
         self.poliza = poliza
         db.session.add(self)
@@ -104,7 +105,7 @@ class Clave(db.Model):
     def serialize(self):
         return{
             "lugar": self.lugar,
-            # "fecha": self.fecha,
+            "fecha": self.fecha,
             "user_id": self.user_id,
             "poliza": self.poliza
         }
