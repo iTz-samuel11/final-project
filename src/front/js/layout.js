@@ -16,6 +16,7 @@ import { Verification } from "./pages/Verification";
 import { Pagos } from "./pages/Pagos";
 import { Clave } from "./pages/Clave";
 import { Prueba2 } from "./pages/Prueba2";
+import { Perfil } from "./pages/Perfil";
 
 //create your first component
 const Layout = () => {
@@ -39,7 +40,8 @@ const Layout = () => {
             <Route element={<Solicitud />} path="/solicitud" />
             <Route element={<Pagos />} path="/pagopoliza" />
             <Route element={<Clave />} path="/clave-acceso" />
-            <Route element={<Prueba2 />} path="/prueba" />
+            <Route element={<Perfil />} path="/perfil" />
+            {/* <Route element={<Prueba2 />} path="/prueba" /> */}
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           {/* <Footer /> */}
