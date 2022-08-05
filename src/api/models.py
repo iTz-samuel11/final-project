@@ -93,7 +93,7 @@ class Clave(db.Model):
     poliza= db.Column(db.String(10), nullable=False)
 
     def __init__(self, razon, lugar, fecha, user_id, poliza):
-        self.motivo = motivo
+        self.razon = razon
         self.lugar = lugar
         self.fecha = fecha
         self.user_id = user_id
