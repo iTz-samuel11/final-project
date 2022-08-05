@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       poliza: undefined,
       user: undefined,
+      avals: [],
       demo: [
         {
           title: "FIRST",
@@ -103,7 +104,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             throw "Invalid email or password format";
           }
           const data = await response.json();
-          // localStorage.setItem("jwt-token", data.token);
 
           return data;
         } catch (error) {
@@ -124,6 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           throw Error("There was a problem in the login request");
         var data = await response.json();
         console.log("This is the data you requested", data);
+        localStorage.setItem("poliza", data.poliza);
         setStore({
           poliza: data,
         });
@@ -141,6 +142,30 @@ const getState = ({ getStore, getActions, setStore }) => {
           return response.ok;
         } catch (error) {
           console.log("ahora si");
+        }
+      },
+      getAval: async () => {
+        try {
+          const poliza = localStorage.getItem("poliza");
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/ask/aval/${poliza}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok) {
+            console.log("verifica el error");
+          }
+          const body = await response.json();
+          setStore({
+            avals: body,
+          });
+          return body;
+        } catch (error) {
+          console.log(error);
         }
       },
     },
