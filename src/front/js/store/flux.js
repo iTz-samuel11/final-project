@@ -146,6 +146,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("ahora si");
         }
       },
+      solicitudClave: async (requestBody) => {
+        try {
+          const response = await fetch(`${process.env.BACKEND_URL}/ask/clave`, {
+            method: "POST",
+            body: JSON.stringify(requestBody),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          return response.ok;
+        } catch (error) {
+          console.log("ahora si");
+        }
+      },
       getAval: async () => {
         try {
           const poliza = localStorage.getItem("poliza");

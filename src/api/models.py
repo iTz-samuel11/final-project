@@ -89,15 +89,13 @@ class CartaAval(db.Model):
 class Clave(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    razon=db.Column(db.String(600), nullable=False)
     lugar = db.Column(db.String(80), nullable=False)
-    fecha = db.Column(db.Integer, nullable=False)
+    # fecha = db.Column(db.Integer, nullable=False)
     poliza= db.Column(db.String(10), nullable=False)
 
-    def __init__(self, razon, lugar, fecha, user_id, poliza):
-        self.razon = razon
+    def __init__(self, lugar, user_id, poliza):
         self.lugar = lugar
-        self.fecha = fecha
+        # self.fecha = fecha
         self.user_id = user_id
         self.poliza = poliza
         db.session.add(self)
@@ -105,9 +103,8 @@ class Clave(db.Model):
 
     def serialize(self):
         return{
-            "razon": self.razon,
             "lugar": self.lugar,
-            "fecha": self.fecha,
+            # "fecha": self.fecha,
             "user_id": self.user_id,
             "poliza": self.poliza
         }

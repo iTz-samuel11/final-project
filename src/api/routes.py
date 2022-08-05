@@ -111,18 +111,20 @@ def ask_aval():
     
     return jsonify(new_aval.serialize()),201
 
-@create.route('/clave', methods=['POST'])
+@ask.route('/clave', methods=['POST'])
 def ask_clave():
     body= request.json
-    razon= body.get('razon', None)
     poliza=body.get('poliza', None)
     lugar = body.get('lugar', None)
-    fecha = body.get('fecha', None)
+    # fecha = 11012003
+
     if poliza is None:
         return jsonify(" no mando el payload requerido..."),400
+
     poliza = User.query.filter_by(poliza=poliza).one_or_none()
     user_id = poliza.id
-    clave=Clave(razon, lugar, fecha, user_id,poliza)
+    _poliza = poliza.poliza
+    clave=Clave( lugar, user_id,_poliza)
     return jsonify(clave.serialize()),201
 
 

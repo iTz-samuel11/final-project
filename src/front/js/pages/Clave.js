@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 
 export const Clave = () => {
   const [poliza, setPoliza] = useState("");
-  const [razon, setRazon] = useState("");
   const [lugar, setLugar] = useState("");
   const { store, actions } = useContext(Context);
 
@@ -32,9 +31,8 @@ export const Clave = () => {
         <button
           className="btn btn-dark"
           onClick={async () => {
-            const clave = await actions.Clave({
+            const clave = await actions.solicitudClave({
               poliza: poliza,
-              razon: razon,
               lugar: lugar,
             });
             if (clave) {

@@ -8,6 +8,8 @@ export const Perfil = () => {
   const nombre = localStorage.getItem("user-nombre");
   const apellido = localStorage.getItem("user-apellido");
   const cedula = localStorage.getItem("user-cedula");
+  const poliza = localStorage.getItem("poliza");
+  const _poliza = poliza.slice(0, -4);
   return (
     <React.Fragment>
       <Nav />
@@ -56,7 +58,7 @@ export const Perfil = () => {
           <div className="tab-pane" id="aval">
             <div className="d-block justify-content-center m-2 w-100">
               {store.avals.map((aval, index) => {
-                return <AvalCard key={aval.id} item={aval} />;
+                return <AvalCard key={aval.id} item={aval} poliza={_poliza} />;
               })}
             </div>
           </div>

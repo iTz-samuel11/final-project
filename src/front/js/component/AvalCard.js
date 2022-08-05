@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-export const AvalCard = ({ item }) => {
+export const AvalCard = ({ item, poliza }) => {
   return (
     <div className="card m-3 justify-content-center" style={{ width: "18rem" }}>
-      <h1 className="card-img-top">{item.user_id} </h1>
+      <h1 className="card-img-top">{poliza} ****</h1>
       <div className="card-body">
         <h5 className="card-title">{item.motivo}</h5>
-        <p className="card-text">{item.fecha}</p>
+        <p className="card-text">{item.lugar}</p>
       </div>
     </div>
   );
@@ -15,4 +15,5 @@ export const AvalCard = ({ item }) => {
 
 AvalCard.propTypes = {
   item: PropTypes.object,
+  poliza: PropTypes.string,
 };

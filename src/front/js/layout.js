@@ -12,7 +12,7 @@ import { LogIn } from "./pages/LogIn";
 import { SegurosBonpland } from "./pages/Seguros";
 import { SolicitudAval } from "./pages/SolicitudAval";
 import { Solicitud } from "./pages/Solicitud";
-import { Verification } from "./pages/Verification";
+import { SolicitudPoliza } from "./pages/SolicitudPoliza";
 import { Pagos } from "./pages/Pagos";
 import { Clave } from "./pages/Clave";
 import { Prueba2 } from "./pages/Prueba2";
@@ -36,7 +36,7 @@ const Layout = () => {
             <Route element={<LogIn />} path="/log-in" />
             <Route element={<SegurosBonpland />} path="/segurosBonpland" />
             <Route element={<SolicitudAval />} path="//solicitud-aval" />
-            <Route element={<Verification />} path="/verification" />
+            <Route element={<SolicitudPoliza />} path="/solicitud-poliza" />
             <Route element={<Solicitud />} path="/solicitud" />
             <Route element={<Pagos />} path="/pagopoliza" />
             <Route element={<Clave />} path="/clave-acceso" />

@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
-export const Verification = () => {
+export const SolicitudPoliza = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const form = useRef();
