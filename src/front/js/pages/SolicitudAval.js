@@ -5,7 +5,8 @@ import emailjs from "emailjs-com";
 
 export const SolicitudAval = () => {
   const form = useRef();
-  const email = localStorage.getItem("user");
+  const email = localStorage.getItem("user-email");
+  const nombre = localStorage.getItem("user-nombre");
   const [poliza, setPoliza] = useState("");
   const [presupuesto, setPresupuesto] = useState("");
   const [motivo, setMotivo] = useState("");
@@ -73,6 +74,7 @@ export const SolicitudAval = () => {
               type="text"
               className="form-control m-4"
               placeholder="fecha"
+              name="fecha"
               value={fecha}
               onChange={(e) => setFecha(e.target.value)}
               aria-required="true"
@@ -82,6 +84,7 @@ export const SolicitudAval = () => {
               type="text"
               className="form-control m-4"
               placeholder="Presupuesto"
+              nombre="presupuesto"
               value={presupuesto}
               onChange={(e) => setPresupuesto(e.target.value)}
               aria-required="true"
@@ -91,6 +94,7 @@ export const SolicitudAval = () => {
               type="text"
               className="form-control m-4"
               value={motivo}
+              nombre="motivo"
               onChange={(e) => setMotivo(e.target.value)}
               style={{ height: "80px" }}
               placeholder="Informe"
@@ -107,11 +111,14 @@ export const SolicitudAval = () => {
             <h3>{"Informe del Doctor"} </h3>
             <input type="file" name="file" />
             <input type="hidden" name="user_email" value={email} />
+            <input type="hidden" name="nombre" value={nombre} />
             <button className="btn btn-dark" type="submit" value="send" />
           </form>
         </div>
         <div className="tab-pane" id="externo">
           <form ref={form} onSubmit={sendEmail}>
+            <input type="hidden" name="user_email" value={email} />
+            <input type="hidden" name="nombre" value={nombre} />
             <h3>{"Numero de Poliza"}</h3>
             <input
               type="number"
