@@ -98,6 +98,7 @@ def ask_aval():
     
     poliza = User.query.filter_by(poliza=poliza).one_or_none()
     user_id = poliza.id
+    _poliza = poliza.poliza
     saldo = poliza.saldo
     _presupuesto = User.subtract_saldo( saldo, int(presupuesto))
 
@@ -106,7 +107,7 @@ def ask_aval():
 
     poliza.saldo= _presupuesto
     db.session.commit()
-    new_aval = CartaAval(motivo, lugar, fecha, user_id, uso_personal)
+    new_aval = CartaAval(motivo, lugar, fecha, user_id, uso_personal, _poliza)
     
     return jsonify(new_aval.serialize()),201
 
@@ -123,6 +124,18 @@ def ask_clave():
     user_id = poliza.id
     clave=Clave(razon, lugar, fecha, user_id,poliza)
     return jsonify(clave.serialize()),201
+
+
+@ask.route('/aval/<int:aval_poliza>', methods=['GET'])
+def get_avals(aval_poliza):
+    aval = CartaAval.query.filter_by(poliza=aval_poliza)
+
+    aval_map = list(map(
+        lambda aval: aval.serialize(),
+        aval
+    ))
+    return jsonify(aval_map), 200
+
 
 @create.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
