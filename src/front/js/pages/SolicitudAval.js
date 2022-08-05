@@ -1,8 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Nav } from "../component/Nav";
 import { Context } from "../store/appContext";
+import emailjs from "emailjs-com";
 
 export const SolicitudAval = () => {
+  const form = useRef();
+  const email = localStorage.getItem("user");
   const [poliza, setPoliza] = useState("");
   const [presupuesto, setPresupuesto] = useState("");
   const [motivo, setMotivo] = useState("");
@@ -10,6 +13,38 @@ export const SolicitudAval = () => {
   const [fecha, setFecha] = useState("");
   const [usoPersonal, setUsoPersonal] = useState(true);
   const { store, actions } = useContext(Context);
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    const succes = await actions.solicitudAval({
+      poliza: poliza,
+      presupuesto: presupuesto,
+      motivo: motivo,
+      lugar: lugar,
+      fecha: fecha,
+      usoPersonal: usoPersonal,
+    });
+    if (!succes) {
+      alert("No se envió");
+      return;
+    } else {
+      emailjs
+        .sendForm(
+          "service_by7xqfy",
+          "template_012hifp",
+          form.current,
+          "5J8lZIQhkW1CEw8Up"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
+  };
   return (
     <React.Fragment>
       <Nav />
@@ -23,7 +58,7 @@ export const SolicitudAval = () => {
       </nav>
       <div className="tab-content py-5 justify-content-center">
         <div className="tab-pane active" id="usoPersonal">
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <h3>{"Numero de Poliza"}</h3>
             <input
               type="text"
@@ -71,24 +106,8 @@ export const SolicitudAval = () => {
             />
             <h3>{"Informe del Doctor"} </h3>
             <input type="file" name="file" />
-            <button
-              className="btn btn-dark"
-              onClick={async () => {
-                const success = await actions.solicitudAval({
-                  poliza: poliza,
-                  presupuesto: presupuesto,
-                  motivo: motivo,
-                  lugar: lugar,
-                  fecha: fecha,
-                  uso_personal: usoPersonal,
-                });
-                if (success) {
-                  alert("listo el mandao");
-                  return;
-                }
-                // alert("no pude hacerlo");
-              }}
-            />
+            <input type="hidden" name="user_email" value={email} />
+            <button className="btn btn-dark" type="submit" value="send" />
           </form>
         </div>
         <div className="tab-pane" id="externo">
@@ -136,7 +155,10 @@ export const SolicitudAval = () => {
               style={{ height: "80px" }}
               placeholder="Lugar"
               value={lugar}
-              onChange={(e) => setLugar(e.target.value)}
+              onChange={(e) => {
+                setLugar(e.target.value);
+                setUsoPersonal(false);
+              }}
             />
             <h3>{"Informe del Doctor"}</h3>
             <input type="file" name="file" />

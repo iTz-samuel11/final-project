@@ -25,10 +25,10 @@ export const Verification = () => {
     } else {
       emailjs
         .sendForm(
-          "service_7a21d88",
-          "template_2d7b76r",
+          "service_by7xqfy",
+          "template_4y4rxba",
           form.current,
-          "BVEQ65oAn7GRS9-Vk"
+          "5J8lZIQhkW1CEw8Up"
         )
         .then(
           (result) => {
