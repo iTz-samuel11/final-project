@@ -84,7 +84,7 @@ class CartaAval(db.Model):
             "user_id": self.user_id
         }
 
-class Clave(db.models):
+class Clave(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     razon=db.Column(db.String(600), nullable=False)
