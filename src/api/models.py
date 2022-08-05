@@ -61,13 +61,15 @@ class User(db.Model):
 class CartaAval(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    poliza = db.Column(db.Integer, nullable=False)
     motivo = db.Column(db.String(600), nullable=False)
     lugar = db.Column(db.String(80), nullable=False)
     fecha = db.Column(db.Integer, nullable=False)
     uso_personal = db.Column(db.Boolean())
 
-    def __init__(self, motivo, lugar, fecha, user_id, uso_personal):
+    def __init__(self, motivo, lugar, fecha, user_id, uso_personal, poliza):
         self.motivo = motivo
+        self.poliza = poliza
         self.lugar = lugar
         self.fecha = fecha
         self.user_id = user_id
