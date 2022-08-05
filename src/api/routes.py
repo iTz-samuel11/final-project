@@ -107,7 +107,7 @@ def ask_aval():
 
     poliza.saldo= _presupuesto
     db.session.commit()
-    new_aval = CartaAval(motivo, lugar, fecha, user_id, uso_personal, poliza)
+    new_aval = CartaAval(motivo, lugar, fecha, user_id, uso_personal, _poliza)
     
     return jsonify(new_aval.serialize()),201
 
