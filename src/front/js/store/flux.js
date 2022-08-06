@@ -4,6 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       poliza: undefined,
       user: undefined,
+      longitude: undefined,
+      latitude: undefined,
       avals: [],
       demo: [
         {
@@ -183,6 +185,25 @@ const getState = ({ getStore, getActions, setStore }) => {
         } catch (error) {
           console.log(error);
         }
+      },
+      getUserPosition: () => {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            let lat = position.coords.latitude;
+            let long = position.coords.longitude;
+            console.log(lat);
+            console.log(long);
+            setStore({
+              userPosition: {
+                latitude: lat,
+                longitude: long,
+              },
+            });
+          },
+          function (error) {
+            console.log("error", error);
+          }
+        );
       },
     },
   };
