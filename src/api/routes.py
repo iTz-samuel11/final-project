@@ -90,7 +90,7 @@ def ask_aval():
     presupuesto=body.get('presupuesto', None)
     motivo= body.get('motivo', None)
     lugar = body.get('lugar', None)
-    fecha = body.get('fecha', None)
+    fecha_a_pedir = body.get('fecha_a_pedir', None)
     uso_personal = body.get('uso_personal', None)
     
     if poliza is None or presupuesto is None:
@@ -107,8 +107,7 @@ def ask_aval():
 
     poliza.saldo= _presupuesto
     db.session.commit()
-    new_aval = CartaAval(motivo, lugar, fecha, user_id, uso_personal, _poliza)
-    
+    new_aval = CartaAval(motivo, lugar, fecha_a_pedir, user_id, uso_personal, _poliza)
     return jsonify(new_aval.serialize()),201
 
 @ask.route('/clave', methods=['POST'])
@@ -130,13 +129,23 @@ def ask_clave():
 
 @ask.route('/aval/<int:aval_poliza>', methods=['GET'])
 def get_avals(aval_poliza):
-    aval = CartaAval.query.filter_by(poliza=aval_poliza)
+    avals = CartaAval.query.filter_by(poliza=aval_poliza)
 
     aval_map = list(map(
         lambda aval: aval.serialize(),
-        aval
+        avals
     ))
     return jsonify(aval_map), 200
+
+@ask.route('/clave/<int:clave_poliza>', methods=['GET'])
+def get_claves(clave_poliza):
+    claves = Clave.query.filter_by(poliza=clave_poliza)
+
+    clave_map = list(map(
+        lambda clave: clave.serialize(),
+        claves
+    ))
+    return jsonify(clave_map), 200
 
 
 @create.route('/hello', methods=['POST', 'GET'])

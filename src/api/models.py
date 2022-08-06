@@ -3,7 +3,7 @@ from base64 import b64encode
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from random import randint
-from datetime import datetime
+from datetime import datetime, timezone
 
 db = SQLAlchemy()
 
@@ -65,16 +65,19 @@ class CartaAval(db.Model):
     poliza = db.Column(db.Integer, nullable=False)
     motivo = db.Column(db.String(600), nullable=False)
     lugar = db.Column(db.String(80), nullable=False)
-    fecha = db.Column(db.Integer, nullable=False)
+    fecha_a_pedir = db.Column(db.Integer, nullable=False)
+    fecha_solicitada = db.Column(db.DateTime, nullable=False)
     uso_personal = db.Column(db.Boolean())
 
-    def __init__(self, motivo, lugar, fecha, user_id, uso_personal, poliza):
+    def __init__(self, motivo, lugar, fecha_a_pedir, user_id, uso_personal, poliza):
         self.motivo = motivo
         self.poliza = poliza
         self.lugar = lugar
-        self.fecha = fecha
+        self.fecha_a_pedir = fecha_a_pedir
         self.user_id = user_id
         self.uso_personal = uso_personal
+        self.fecha_solicitada = datetime.now(timezone.utc)
+
         db.session.add(self)
         db.session.commit()
 
@@ -82,7 +85,8 @@ class CartaAval(db.Model):
         return{
             "motivo": self.motivo,
             "lugar": self.lugar,
-            "fecha": self.fecha,
+            "fecha_solicitada": self.fecha_solicitada.isoformat(),
+            "fecha_a_pedir": self.fecha_a_pedir,
             "uso_personal": self.uso_personal,
             "user_id": self.user_id
         }
@@ -91,12 +95,12 @@ class Clave(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     lugar = db.Column(db.String(80), nullable=False)
-    fecha = db.Column(db.Integer, nullable=False)
-    poliza= db.Column(db.String(10), nullable=False)
+    fecha_solicitada = db.Column(db.DateTime, nullable=False)
+    poliza= db.Column(db.Integer, nullable=False)
 
     def __init__(self, lugar, user_id, poliza):
         self.lugar = lugar
-        self.fecha = datetime()
+        self.fecha_solicitada = datetime.now(timezone.utc)
         self.user_id = user_id
         self.poliza = poliza
         db.session.add(self)
@@ -105,7 +109,7 @@ class Clave(db.Model):
     def serialize(self):
         return{
             "lugar": self.lugar,
-            "fecha": self.fecha,
+            "fecha_solicitada": self.fecha_solicitada.isoformat(),
             "user_id": self.user_id,
             "poliza": self.poliza
         }
