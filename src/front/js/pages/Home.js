@@ -4,45 +4,56 @@ import "../../styles/home.css";
 import { Navbar } from "../component/navbar";
 import { useNavigate } from "react-router-dom";
 import poliza from "../../../../docs/assets/Solicitudpoliza.png";
+import emergencia from "../../../../docs/assets/Emergencia.png";
+import Swal from "sweetalert2";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  const myswal = () => {
+    Swal.fire({
+      title:
+        "llama a una ambulancia o solicita atención domiciliaria a través de",
+      text: "02123445678/0424255031\n En ambos números por favor indentifiquese como cliente de Seguros BonPland",
+    });
+  };
 
   return (
     <div>
       <Navbar />
-      <div className="text-center mt-5">
+      <div>
         <button
           className="btn btn-danger me-4 btn-lg"
           onClick={(e) => {
-            navigate("/verification");
+            navigate("/sign-up");
           }}
         >
-          {"Solicitar poliza"}
+          {"Únete a nosotros!"}
         </button>
-        <p>
+        <img
+          style={{
+            height: "500px",
+            width: "200x",
+            margin: "20%",
+            marginTop: "2%",
+            marginLeft: "62%",
+          }}
+          src={poliza}
+        ></img>
+        <div>
           <img
             style={{
               height: "500px",
               width: "200x",
-              margin: "20%",
+              margin: "5%",
               marginTop: "2%",
-              marginRight: "100%",
+              marginRight: "62%",
             }}
-            src={poliza}
-          />
-        </p>
-        <div className="alert alert-info">
-          "Loading message from the backend (make sure your python backend is
-          running)..."
+            src={emergencia}
+          ></img>
         </div>
-        <p>
-          This boilerplate comes with lots of documentation:{" "}
-          <a href="https://github.com/4GeeksAcademy/react-flask-hello/tree/95e0540bd1422249c3004f149825285118594325/docs">
-            Read documentation
-          </a>
-        </p>
+
+        <button onClick={() => myswal()}>saludar</button>
       </div>
     </div>
   );

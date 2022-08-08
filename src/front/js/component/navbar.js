@@ -92,9 +92,6 @@ export const Navbar = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <Link to="/sign-up">
-              <button className="btn btn-danger">{"Sign Up Here"}</button>
-            </Link>
             <Link to="/log-in">
               <button className="btn btn-danger">{"logIn Here"}</button>
             </Link>
