@@ -51,11 +51,12 @@ export const MapView = () => {
 // import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 // import React, { useState, useRef, useCallback } from "react";
 // import MapGL from "react-map-gl";
-// import Geocoder from "react-geocoder";
+// // import Geocoder from "react-geocoder";
+// import Geocoder from "react-map-gl-geocoder";
 
 // // Ways to set Mapbox token: https://uber.github.io/react-map-gl/#/Documentation/getting-started/about-mapbox-tokens
 // const MAPBOX_TOKEN =
-//   "pk.eyJ1Ijoic2FtdWVsMTFmYXJhY28iLCJhIjoiY2w2aXE0Nmk5MGlmczNjcnh3N3Z3YWE5YyJ9.NcXOG8smUhjajrui9btWTg";
+//   "pk.eyJ1Ijoic2FtdWVsMTFmYXJhY28iLCJhIjoiY2w2azEweXVpMHdxYTNibnd5MWpsbmZ2OCJ9.cjwsnVWotVL_nLAfuPc6Vw";
 
 // export const MapView = () => {
 //   const [viewport, setViewport] = useState({
