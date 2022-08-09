@@ -17,7 +17,7 @@ export const SignUp = (props) => {
     Swal.fire({
       icon: "error",
       title: "Ha ocurrido un error",
-      text: "No pude crear al usuario, Por facor intentelo mas tarde",
+      text: "No pude crear al usuario, Por favor inténtelo más tarde",
     });
   };
   const pass = () => {

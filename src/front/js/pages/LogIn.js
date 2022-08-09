@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Swal from "sweetalert2";
 
 // export const LogIn = (props) => {
 //   return <h1>login</h1>;
@@ -11,6 +12,13 @@ export const LogIn = (props) => {
   const [password, setPassword] = useState("");
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  const notUser = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Ha ocurrido un error",
+      text: "El usuario no está registrado, por favor registrese antes de iniciar sesión",
+    });
+  };
 
   return (
     <div className="container">
@@ -47,7 +55,7 @@ export const LogIn = (props) => {
               navigate("/segurosBonpland");
               return;
             }
-            alert("something happened while creating the user");
+            notUser();
           }}
         >
           {" "}
