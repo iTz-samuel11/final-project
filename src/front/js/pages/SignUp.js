@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import logo from "../../../../docs/assets/Logotipo.png";
+import Swal from "sweetalert2";
 
 export const SignUp = (props) => {
   const [nombre, setNombre] = useState("");
@@ -11,6 +12,27 @@ export const SignUp = (props) => {
   const [cedula, setCedula] = useState("");
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+
+  const notUser = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Ha ocurrido un error",
+      text: "No pude crear al usuario, Por facor intentelo mas tarde",
+    });
+  };
+  const pass = () => {
+    Swal.fire({
+      icon: "warning",
+      title: "La contraseña debe contener 8 caracteres",
+    });
+  };
+  const missing = () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Por Favor, llene todas las casillas",
+    });
+  };
+
   return (
     <div className="container d-flex">
       <div className="col-7 me-5">
@@ -85,11 +107,11 @@ export const SignUp = (props) => {
                 apellido === "" ||
                 cedula === ""
               ) {
-                alert("llene todas las casillas por favor");
+                missing();
                 return;
               }
               if (password.length <= 7) {
-                alert("La contraseña debe tener minimo 8 caracteres");
+                pass();
                 return;
               }
               const success = await actions.signUpUser({
@@ -103,7 +125,7 @@ export const SignUp = (props) => {
                 navigate("/pagopoliza");
                 return;
               }
-              alert("no pude crear el usuario");
+              notUser();
             }}
           >
             {"Registrese"}
