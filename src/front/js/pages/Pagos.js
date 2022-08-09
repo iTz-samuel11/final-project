@@ -73,7 +73,7 @@ export const Pagos = () => {
               backgroundImage: `url("https://i.pinimg.com/736x/8c/9a/66/8c9a66a939a7e985e34fd0b1ff306f4b.jpg")`,
             }}
           >
-            <h2 className="m-3">{"Plan Grandidierite "}</h2>
+            <h2 className="m-3">{" Plan Grandidierite "}</h2>
             <p className="fs-4" style={{ marginLeft: "30%" }}>
               <FontAwesomeIcon icon={faArrowDown} />
               {"     "}
@@ -108,7 +108,7 @@ export const Pagos = () => {
                 className="btn btn-dark m-4"
                 onClick={() => {
                   setPlan(plan1);
-                  setSeguro("Plan salud básico");
+                  setSeguro(" Salud Grandidierite");
                 }}
               >
                 {"Seleccionar Plan"}
@@ -123,7 +123,7 @@ export const Pagos = () => {
               backgroundImage: `url("https://i.pinimg.com/736x/8c/9a/66/8c9a66a939a7e985e34fd0b1ff306f4b.jpg")`,
             }}
           >
-            <h2 className="m-3">{" Taaffeite"}</h2>
+            <h2 className="m-3">{" Taaffeite "}</h2>
             <p className="fs-4" style={{ marginLeft: "30%" }}>
               <FontAwesomeIcon icon={faArrowDown} />
               {"     "}
@@ -158,7 +158,7 @@ export const Pagos = () => {
                 className="btn btn-dark m-4"
                 onClick={() => {
                   setPlan(plan2);
-                  setSeguro("Plan salud intermedio");
+                  setSeguro(" Salud Taaffeite");
                 }}
               >
                 {"Seleccionar Plan"}
@@ -208,7 +208,7 @@ export const Pagos = () => {
                 className="btn btn-dark m-4"
                 onClick={() => {
                   setPlan(plan3);
-                  setSeguro("Plan salud gold");
+                  setSeguro(" Salud Diamante Rojo");
                 }}
               >
                 {"Seleccionar Plan"}
@@ -286,6 +286,7 @@ export const Pagos = () => {
           </div>
         </div>
         <div className="container m-5" style={{ width: "100%" }}>
+          <h1 className="m-5">{`Su plan es ${seguro}`}</h1>
           <button
             type="button"
             style={{ width: "100%", height: "50px", marginLeft: "15%" }}
