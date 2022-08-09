@@ -53,6 +53,12 @@ export const Pagos = () => {
       title: "seleccione algun plan",
     });
   };
+  const erro = () => {
+    Swal.fire({
+      icon: "error",
+      title: "fallo en agregar un plan",
+    });
+  };
   return (
     <React.Fragment>
       <BasicNav />
@@ -296,6 +302,9 @@ export const Pagos = () => {
               if (success) {
                 navigate("/log-in");
                 console.log("listo, revisa la base de datos");
+                return;
+              } else {
+                erro();
                 return;
               }
             }}
