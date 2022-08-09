@@ -86,6 +86,7 @@
     "prop-types": "^15.6.1",
     "react": "^17.0.2",
     "react-bootstrap-sweetalert": "^5.2.0",
+    "react-credit-cards": "^0.8.3",
     "react-dom": "^17.0.2",
     "react-geocode": "^0.2.3",
     "react-geocoder": "^2.5.0",
