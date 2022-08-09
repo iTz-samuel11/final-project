@@ -68,6 +68,19 @@ export const LogIn = (props) => {
             {" "}
             {"Ingresar"}{" "}
           </button>
+          <p className="fs-1 text-center">{"¿Desea registrarse?"}</p>
+          <p class="fw-light text-center">
+            El proceso es rápido y sencillo. Podrá ver sus pólizas y registrar
+            sus pagos.
+          </p>
+          <button
+            className="btn btn-dark me-4 btn-lg"
+            onClick={(e) => {
+              navigate("/sign-up");
+            }}
+          >
+            {"Quiero registrarme"}
+          </button>
         </div>
       </div>
     </React.Fragment>
