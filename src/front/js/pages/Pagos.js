@@ -5,7 +5,9 @@ import { BasicNav } from "../component/BasicNav";
 import { Context } from "../store/appContext";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown, faCheck } from "@fortawesome/free-solid-svg-icons";
+import {} from "@fortawesome/free-regular-svg-icons";
 export const Pagos = () => {
   const plan1 = 2500;
   const plan2 = 5000;
@@ -54,37 +56,167 @@ export const Pagos = () => {
   return (
     <React.Fragment>
       <BasicNav />
-      <div className="col-10 m-5">
+      <div className="m-5">
         <p className="fs-1">{"Que Plan Desea?"}</p>
-        <button
-          className=" col-3 btn btn-dark m-2"
-          onClick={() => {
-            setPlan(plan1);
-            setSeguro("Plan salud básico");
-          }}
-        >
-          {"plan basico '2500$'"}
-        </button>
-        <button
-          className=" col-3 btn btn-dark m-2"
-          onClick={() => {
-            setPlan(plan2);
-            setSeguro("Plan salud intermedio");
-          }}
-        >
-          {"plan intermedio '5000$'"}
-        </button>
-        <button
-          className=" col-3 btn btn-dark m-2"
-          onClick={() => {
-            setPlan(plan3);
-            setSeguro("Plan salud gold");
-          }}
-        >
-          {"plan gold '10000$'"}
-        </button>
+        <div className="d-flex">
+          <div
+            className="col m-3"
+            style={{
+              border: "2px solid #9fd5d1",
+              borderRadius: "10px",
+              backgroundImage: `url("https://i.pinimg.com/736x/8c/9a/66/8c9a66a939a7e985e34fd0b1ff306f4b.jpg")`,
+            }}
+          >
+            <h2 className="m-3">{"Plan Grandidierite "}</h2>
+            <p className="fs-4" style={{ marginLeft: "30%" }}>
+              <FontAwesomeIcon icon={faArrowDown} />
+              {"     "}
+              {"Te incluye"}
+              {"     "}
+              <FontAwesomeIcon icon={faArrowDown} />
+            </p>
+            <div className="m-4">
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Atención las 24 Horas"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Cobertura de Hasta 2.500$"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Multiples solicitudes desde la misma Poliza"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Sin pago por Afiliarte con Nosotros"}
+              </p>
+            </div>
+            <div style={{ marginTop: "4%", marginLeft: "30%" }}>
+              <p className="fs-4 text-secondary">{"630$ Trimestral"}</p>
+            </div>
+            <div>
+              <button
+                style={{ width: "90%" }}
+                className="btn btn-dark m-4"
+                onClick={() => {
+                  setPlan(plan1);
+                  setSeguro("Plan salud básico");
+                }}
+              >
+                {"Seleccionar Plan"}
+              </button>
+            </div>
+          </div>
+          <div
+            className="col m-3"
+            style={{
+              border: "2px solid #572364",
+              borderRadius: "10px",
+              backgroundImage: `url("https://i.pinimg.com/736x/8c/9a/66/8c9a66a939a7e985e34fd0b1ff306f4b.jpg")`,
+            }}
+          >
+            <h2 className="m-3">{" Taaffeite"}</h2>
+            <p className="fs-4" style={{ marginLeft: "30%" }}>
+              <FontAwesomeIcon icon={faArrowDown} />
+              {"     "}
+              {"Te incluye"}
+              {"     "}
+              <FontAwesomeIcon icon={faArrowDown} />
+            </p>
+            <div className="m-4">
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Atención las 24 Horas"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Cobertura de Hasta 5.000$"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Multiples solicitudes desde la misma Poliza"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Sin pago por Afiliarte con Nosotros"}
+              </p>
+            </div>
+            <div style={{ marginTop: "4%", marginLeft: "30%" }}>
+              <p className="fs-4 text-secondary">{"1.221$ Trimestral"}</p>
+            </div>
+            <div>
+              <button
+                style={{ width: "90%" }}
+                className="btn btn-dark m-4"
+                onClick={() => {
+                  setPlan(plan2);
+                  setSeguro("Plan salud intermedio");
+                }}
+              >
+                {"Seleccionar Plan"}
+              </button>
+            </div>
+          </div>
+          <div
+            className="col m-3"
+            style={{
+              border: "2px solid #CB2400",
+              borderRadius: "10px",
+              backgroundImage: `url("https://i.pinimg.com/736x/8c/9a/66/8c9a66a939a7e985e34fd0b1ff306f4b.jpg")`,
+            }}
+          >
+            <h2 className="m-3">{" Diamante Rojo "}</h2>
+            <p className="fs-4" style={{ marginLeft: "30%" }}>
+              <FontAwesomeIcon icon={faArrowDown} />
+              {"     "}
+              {"Te incluye"}
+              {"     "}
+              <FontAwesomeIcon icon={faArrowDown} />
+            </p>
+            <div className="m-4">
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Atención las 24 Horas"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Cobertura de Hasta 10.000$"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Multiples solicitudes desde la misma Poliza"}
+              </p>
+              <p className="fs-5">
+                <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                {" Sin pago por Afiliarte con Nosotros"}
+              </p>
+            </div>
+            <div style={{ marginTop: "4%", marginLeft: "30%" }}>
+              <p className="fs-4 text-secondary">{"2.511$ Trimestral"}</p>
+            </div>
+            <div>
+              <button
+                style={{ width: "90%" }}
+                className="btn btn-dark m-4"
+                onClick={() => {
+                  setPlan(plan3);
+                  setSeguro("Plan salud gold");
+                }}
+              >
+                {"Seleccionar Plan"}
+              </button>
+            </div>
+          </div>
+        </div>
         <p className="fs-1">{"Datos de Pago"}</p>
-        <div className="card">
+        <div
+          className="card"
+          style={{
+            backgroundImage: `url("https://st.depositphotos.com/2475357/3803/i/450/depositphotos_38032161-stock-photo-abstract-white-geometric-neutral-background.jpg")`,
+          }}
+        >
           <div className="card-body">
             <Cards
               number={state.number}
@@ -119,7 +251,7 @@ export const Pagos = () => {
                 />
               </div>
               <div className="form-row d-flex">
-                <div className="form-group col-5 ms-5">
+                <div className="form-group col-6">
                   <label htmlFor="expiry">Fecha de expiración</label>
                   <input
                     type="text"
@@ -131,7 +263,7 @@ export const Pagos = () => {
                     onFocus={handleFocusChange}
                   />
                 </div>
-                <div className="form-group col-5 ms-4">
+                <div className="form-group col-4 ms-5">
                   <label htmlFor="cvc">CVC</label>
                   <input
                     type="text"
@@ -144,57 +276,34 @@ export const Pagos = () => {
                   />
                 </div>
               </div>
-              <button
-                type="button"
-                className="btn btn-light"
-                onClick={async (e) => {
-                  if (plan === "") {
-                    missing();
-                    return;
-                  }
-                  const success = await actions.addSaldo({
-                    cedula: store.user.cedula,
-                    saldo: plan,
-                  });
-                  if (success) {
-                    navigate("/log-in");
-                    console.log("listo, revisa la base de datos");
-                    return;
-                  }
-                }}
-              >
-                {"comprar plan"}
-              </button>{" "}
             </form>
           </div>
+        </div>
+        <div className="container m-5" style={{ width: "100%" }}>
+          <button
+            type="button"
+            style={{ width: "100%", height: "50px", marginLeft: "15%" }}
+            className="btn btn-dark justify-content-center"
+            onClick={async (e) => {
+              if (plan === "") {
+                missing();
+                return;
+              }
+              const success = await actions.addSaldo({
+                cedula: store.user.cedula,
+                saldo: plan,
+              });
+              if (success) {
+                navigate("/log-in");
+                console.log("listo, revisa la base de datos");
+                return;
+              }
+            }}
+          >
+            {"comprar plan"}
+          </button>
         </div>
       </div>
     </React.Fragment>
   );
 };
-{
-  /* <h1>{`Su plan es ${seguro}`}</h1> */
-}
-{
-  /* <button
-          type="button"
-          className="btn btn-light"
-          onClick={async (e) => {
-            if (plan === "") {
-              missing();
-              return;
-            }
-            const success = await actions.addSaldo({
-              cedula: store.user.cedula,
-              saldo: plan,
-            });
-            if (success) {
-              navigate("/log-in");
-              console.log("listo, revisa la base de datos");
-              return;
-            }
-          }}
-        >
-          {"comprar plan"}
-        </button> */
-}
