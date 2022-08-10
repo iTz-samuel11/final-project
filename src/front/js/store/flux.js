@@ -79,9 +79,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           const data = await response.json();
           localStorage.setItem("jwt-token", data.token);
-          localStorage.setItem("user-email", data.user.email);
-          localStorage.setItem("user-nombre", data.user.name);
-          localStorage.setItem("user-apellido", data.user.lastname);
           localStorage.setItem("user-cedula", data.user.cedula);
           setStore({
             user: data.user,
@@ -115,6 +112,30 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
       },
+      getUser: async () => {
+        try {
+          const cedula = localStorage.getItem("user-cedula");
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/create/user/${cedula}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok)
+            throw Error("There was a problem in the login request");
+          var data = await response.json();
+          setStore({
+            user: data,
+          });
+          return data;
+        } catch (error) {
+          console.log(Error);
+          return false;
+        }
+      },
       poliza: async () => {
         const token = localStorage.getItem("jwt-token");
         const response = await fetch(`${process.env.BACKEND_URL}/take/poliza`, {
@@ -128,7 +149,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           throw Error("There was a problem in the login request");
         var data = await response.json();
         console.log("This is the data you requested", data);
-        localStorage.setItem("poliza", data.poliza);
         setStore({
           poliza: data,
         });
@@ -162,9 +182,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("ahora si");
         }
       },
-      getAval: async () => {
+      getAval: async (poliza) => {
         try {
-          const poliza = localStorage.getItem("poliza");
+          // const poliza = getStore(user.poliza);
           const response = await fetch(
             `${process.env.BACKEND_URL}/ask/aval/${poliza}`,
             {

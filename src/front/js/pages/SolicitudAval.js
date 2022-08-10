@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Nav } from "../component/Nav";
 import { Context } from "../store/appContext";
 import emailjs from "emailjs-com";
@@ -15,6 +15,10 @@ export const SolicitudAval = () => {
   const [usoPersonal, setUsoPersonal] = useState(true);
   const { store, actions } = useContext(Context);
 
+  useEffect(() => {
+    actions.poliza();
+  }, [window.onload]);
+
   const sendEmail = async (e) => {
     e.preventDefault();
     const succes = await actions.solicitudAval({
@@ -22,7 +26,7 @@ export const SolicitudAval = () => {
       presupuesto: presupuesto,
       motivo: motivo,
       lugar: lugar,
-      fecha: fecha,
+      fecha_a_pedir: fecha,
       uso_personal: usoPersonal,
     });
     if (!succes) {

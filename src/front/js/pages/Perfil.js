@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AvalCard } from "../component/AvalCard";
 import { Nav } from "../component/Nav";
 import { Context } from "../store/appContext";
@@ -8,8 +8,12 @@ export const Perfil = () => {
   const nombre = localStorage.getItem("user-nombre");
   const apellido = localStorage.getItem("user-apellido");
   const cedula = localStorage.getItem("user-cedula");
-  const poliza = localStorage.getItem("poliza");
+  const poliza = store.user && store.user.poliza;
   const _poliza = poliza.slice(0, -4);
+
+  useEffect(() => {
+    actions.getAval(poliza);
+  }, []);
   return (
     <React.Fragment>
       <Nav />

@@ -56,13 +56,14 @@ class User(db.Model):
             "name":self.nombre,
             "lastname": self.apellido,
             "cedula": self.cedula,
-            "saldo": self.saldo
+            "saldo": self.saldo,
+            "poliza": self.poliza
         }
 
 class CartaAval(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    poliza = db.Column(db.Integer, nullable=False)
+    poliza = db.Column(db.String(20), nullable=False)
     motivo = db.Column(db.String(600), nullable=False)
     lugar = db.Column(db.String(80), nullable=False)
     fecha_a_pedir = db.Column(db.Integer, nullable=False)
