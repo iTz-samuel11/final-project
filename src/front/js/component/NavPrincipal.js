@@ -40,13 +40,15 @@ export const NavPrincipal = () => {
             style={{ bSscrollHeight: "100px" }}
           >
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
+              <Link to="/solicitud-poliza">
+                <a className="nav-link active" aria-current="page" href="#">
+                  {"Solicitar mi poliza"}
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Link
+                {"Buen Comer"}
               </a>
             </li>
             <li className="nav-item dropdown">

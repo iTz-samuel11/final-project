@@ -18,26 +18,6 @@ export const SegurosBonpland = () => {
     <React.Fragment>
       <NavPrincipal />
       <div>
-        <button
-          className="btn btn-danger me-4 btn-lg"
-          onClick={(e) => {
-            navigate("/verification");
-          }}
-        >
-          {"Solicitar poliza"}
-        </button>
-        <p>
-          <img
-            style={{
-              height: "500px",
-              width: "200x",
-              margin: "20%",
-              marginTop: "2%",
-              marginRight: "100%",
-            }}
-            src={poliza}
-          />
-        </p>
         <div>
           <div>
             <img

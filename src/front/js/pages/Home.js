@@ -40,18 +40,6 @@ export const Home = () => {
           }}
           src={poliza}
         ></img>
-        <div>
-          <img
-            style={{
-              height: "500px",
-              width: "200x",
-              margin: "5%",
-              marginTop: "2%",
-              marginRight: "62%",
-            }}
-            src={emergencia}
-          ></img>
-        </div>
 
         <button onClick={() => myswal()}>saludar</button>
       </div>

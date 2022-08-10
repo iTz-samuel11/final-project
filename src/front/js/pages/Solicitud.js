@@ -23,7 +23,7 @@ export const Solicitud = () => {
           </p>
           <button
             onClick={(e) => {
-              navigate("/verification");
+              navigate("/solicitud-poliza");
             }}
             className="btn btn-primary"
           >

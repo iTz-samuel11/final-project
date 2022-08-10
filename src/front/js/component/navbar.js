@@ -10,7 +10,7 @@ export const Navbar = () => {
       <div className="container-fluid">
         <Link to="/">
           <h2 className="navbar-brand" href="#">
-            Navbar scroll
+            {"Seguros Bonpland"}
           </h2>
         </Link>
         <button
