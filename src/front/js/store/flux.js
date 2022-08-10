@@ -80,6 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = await response.json();
           localStorage.setItem("jwt-token", data.token);
           localStorage.setItem("user-cedula", data.user.cedula);
+          localStorage.setItem("user-poliza", data.user.poliza);
           setStore({
             user: data.user,
           });
@@ -182,9 +183,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("ahora si");
         }
       },
-      getAval: async (poliza) => {
+      getAval: async () => {
         try {
-          // const poliza = getStore(user.poliza);
+          const poliza = localStorage.getItem("user-poliza");
           const response = await fetch(
             `${process.env.BACKEND_URL}/ask/aval/${poliza}`,
             {

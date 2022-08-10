@@ -12,7 +12,7 @@ export const Perfil = () => {
   const _poliza = poliza.slice(0, -4);
 
   useEffect(() => {
-    actions.getAval(poliza);
+    actions.getAval();
   }, []);
   return (
     <React.Fragment>

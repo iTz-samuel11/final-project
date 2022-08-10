@@ -8,6 +8,7 @@ import "react-credit-cards/es/styles-compiled.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faCheck } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
+
 export const Pagos = () => {
   const plan1 = 2500;
   const plan2 = 5000;

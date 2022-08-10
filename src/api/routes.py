@@ -138,7 +138,7 @@ def get_avals(aval_poliza):
 
 @ask.route('/clave/<int:clave_poliza>', methods=['GET'])
 def get_claves(clave_poliza):
-    claves = Clave.query.filter_by(poliza=clave_poliza)
+    claves = Clave.query.filter_by(poliza=str(clave_poliza))
 
     clave_map = list(map(
         lambda clave: clave.serialize(),
