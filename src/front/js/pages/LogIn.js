@@ -2,11 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Swal from "sweetalert2";
-import { BasicNav } from "../component/BasicNav";
-
-// export const LogIn = (props) => {
-//   return <h1>login</h1>;
-// };
+import { NavLog } from "../component/NavLog";
 
 export const LogIn = (props) => {
   const [email, setEmail] = useState("");
@@ -23,7 +19,7 @@ export const LogIn = (props) => {
 
   return (
     <React.Fragment>
-      <BasicNav />
+      <NavLog />
       <p className="fs-1 text-center">{"¿Ya está registrado?"}</p>
       <p class="fw-light text-center">
         Introduzca sus datos para ingresar al portal
@@ -31,6 +27,9 @@ export const LogIn = (props) => {
       <div className="container">
         <div className="row">
           <form>
+            <p className="fs-2">
+              <strong>{"Email"}</strong>
+            </p>
             <input
               type="email"
               name="email"
@@ -39,6 +38,9 @@ export const LogIn = (props) => {
               placeholder="email"
               onChange={(e) => setEmail(e.target.value)}
             />
+            <p className="fs-2">
+              <strong>{"Password"}</strong>
+            </p>
             <input
               type="password"
               className="form-control m-1"

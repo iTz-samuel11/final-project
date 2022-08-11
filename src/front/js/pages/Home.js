@@ -7,17 +7,12 @@ import poliza from "../../../../docs/assets/Solicitudpoliza.png";
 import emergencia from "../../../../docs/assets/Emergencia.png";
 import Swal from "sweetalert2";
 import { Footer } from "../component/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownLong } from "@fortawesome/free-solid-svg-icons";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-  const myswal = () => {
-    Swal.fire({
-      title:
-        "llama a una ambulancia o solicita atención domiciliaria a través de",
-      text: "02123445678/0424255031\n En ambos números por favor indentifiquese como cliente de Seguros BonPland",
-    });
-  };
 
   return (
     <div>
@@ -107,6 +102,42 @@ export const Home = () => {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
+        <div className="container" id="unete">
+          <div
+            className="m-4"
+            style={{
+              border: "1px solid gray",
+              borderRadius: "40px",
+              backgroundImage: `url("https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2017/03/color-degradado-fondos-degradados-multicolor-51200.jpg?fit=1920%2C1200&quality=50&strip=all&ssl=1923/740/gradient-wallpaper-preview.jpg")`,
+            }}
+          >
+            <div className="m-3 p-3">
+              <p className="text-center fs-2">
+                <strong>{"Unete a Nosotros !!!"}</strong>
+              </p>
+            </div>
+            <div>
+              <p className="text-center fs-2">
+                <FontAwesomeIcon icon={faDownLong} />
+                {"               "}
+                <FontAwesomeIcon icon={faDownLong} />
+                {"               "}
+                <FontAwesomeIcon icon={faDownLong} />
+              </p>
+            </div>
+            <div className="m-3 p-3">
+              <button
+                className="btn btn-light px-4 py-2 fs-5"
+                style={{ marginLeft: "37%" }}
+                onClick={() => {
+                  navigate("/sign-up");
+                }}
+              >
+                {"Unirme a Seguros Bonpland"}
+              </button>
+            </div>
+          </div>
+        </div>
         <div>
           <div style={{ marginTop: "8%" }}>
             <div className="row py-3 m-4">
@@ -170,7 +201,7 @@ export const Home = () => {
                 </p>
               </div>
             </div>
-            <div style={{ marginTop: "5%" }}>
+            <div style={{ marginTop: "5%" }} id="planes">
               <div className="m-3 p-2">
                 <p className="fs-2">
                   <strong>{"Cuales son nuestros planes?"}</strong>
