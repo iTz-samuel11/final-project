@@ -51,8 +51,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import React, { useState, useRef, useCallback } from "react";
 import MapGL from "react-map-gl";
-// import Geocoder from "react-geocoder";
-import Geocoder from "map-gl-geocoder";
+import Geocoder from "react-geocode";
+// import Geocoder from "react-map-gl-geocoder";
 
 // Ways to set Mapbox token: https://uber.github.io/react-map-gl/#/Documentation/getting-started/about-mapbox-tokens
 const MAPBOX_TOKEN =
