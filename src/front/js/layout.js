@@ -5,8 +5,6 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/Home";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 import { SignUp } from "./pages/SignUp";
 import { LogIn } from "./pages/LogIn";
 import { SegurosBonpland } from "./pages/Seguros";

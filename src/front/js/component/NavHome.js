@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../../../docs/assets/Logotipo.png";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
@@ -8,11 +9,10 @@ export const Navbar = () => {
       style={{ backgroundColor: "#211224" }}
     >
       <div className="container-fluid">
-        <Link to="/">
-          <h2 className="navbar-brand" href="#">
-            {"Seguros Bonpland"}
-          </h2>
-        </Link>
+        <img src={logo} style={{ height: "80px", width: "110px" }} />
+        <p className="navbar-brand ms-3 fs-3" href="#">
+          {"Seguros Bonpland"}
+        </p>
         <button
           className="navbar-toggler"
           type="button"
@@ -85,26 +85,10 @@ export const Navbar = () => {
               </a>
             </li>
           </ul>
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <Link to="/log-in">
-              <button className="btn btn-danger">{"logIn Here"}</button>
-            </Link>
-          </form>
-          <button
-            className="btn btn-danger"
-            onClick={(e) => {
-              localStorage.clear();
-              console.log("hola");
-            }}
-          >
-            {"Hola soy un boton"}{" "}
-          </button>
+
+          <Link to="/log-in">
+            <button className="btn btn-light">{"logIn Here"}</button>
+          </Link>
         </div>
       </div>
     </nav>
