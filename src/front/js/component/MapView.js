@@ -95,4 +95,5 @@ export const MapView = () => {
             </MapGL>
         </div>
     );
+
 };

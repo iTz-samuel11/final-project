@@ -93,5 +93,8 @@
         "react-router-dom": "^6.3.0",
         "react-scripts": "^4.0.3",
         "sweetalert2": "^11.4.26"
+    },
+    "overrides": {
+        "react-map-gl": "^6.0.0"
     }
 }

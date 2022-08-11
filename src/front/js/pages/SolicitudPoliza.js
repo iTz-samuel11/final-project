@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import { Nav } from "../component/Nav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { Footer } from "../component/Footer";
 
 export const SolicitudPoliza = () => {
   const [email, setEmail] = useState("");
@@ -42,25 +46,70 @@ export const SolicitudPoliza = () => {
     }
   };
   return (
-    <form ref={form} onSubmit={sendEmail}>
-      <input name="poliza" type="hidden" value={poliza} />
-      <label>Name</label>
-      <input type="text" name="name" />
-      <label>Email</label>
-      <input
-        type="email"
-        name="user_email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <label>password</label>
-      <input
-        type="password"
-        placeholder="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      ></input>
-      <input type="submit" value="Send" />
-    </form>
+    <React.Fragment>
+      <Nav />
+      <div className="container">
+        <div>
+          <p className="fs-1 m-3 p-3">
+            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#211224" }} />
+            {"         "}
+            {"llena este formulario para que te llegue tu poliza al correo"}
+            {"         "}
+            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#211224" }} />
+          </p>
+        </div>
+        <div
+          className="d-block m-3 p-4"
+          style={{
+            border: "2px solid #211224",
+            borderRadius: "10px",
+            backgroundImage: `url("https://img.freepik.com/vector-premium/fondo-seguridad-cibernetica-elementos-futuristas_23-2148534479.jpg")`,
+          }}
+        >
+          <form ref={form} onSubmit={sendEmail}>
+            <input name="poliza" type="hidden" value={poliza} />
+            <div className="w-100">
+              <p className="fs-2 text-light">{"Nombre y Apellido"}</p>
+              <input
+                type="text"
+                name="name"
+                placeholder="nombre y apellido"
+                className="form-control"
+              />
+            </div>
+            <div>
+              <p className="fs-2 text-light">{"Email"}</p>
+              <input
+                placeholder="email"
+                className="form-control "
+                type="email"
+                name="user_email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <p className="fs-2 text-light">{"Password"}</p>
+              <input
+                className="form-control"
+                type="password"
+                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></input>
+            </div>
+            <div className="m-3 p-3">
+              <input
+                className="col-6 btn btn-light"
+                style={{ marginLeft: "50%" }}
+                type="submit"
+                value="Send"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <Footer />
+    </React.Fragment>
   );
 };
