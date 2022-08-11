@@ -20,9 +20,9 @@ export const NavPrincipal = () => {
     >
       <div className="container-fluid ms-3">
         <img src={logo} style={{ height: "80px", width: "110px" }} />
-        <h2 className="navbar-brand ms-3" href="#">
+        <p className="navbar-brand ms-3 fs-3" href="#">
           {"Seguros Bonpland"}
-        </h2>
+        </p>
         <button
           className="navbar-toggler"
           type="button"
@@ -41,7 +41,11 @@ export const NavPrincipal = () => {
           >
             <li className="nav-item">
               <Link to="/solicitud-poliza">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a
+                  className="nav-link active fs-5"
+                  aria-current="page"
+                  href="#"
+                >
                   {"Solicitar mi poliza"}
                 </a>
               </Link>
@@ -51,41 +55,7 @@ export const NavPrincipal = () => {
                 {"Buen Comer"}
               </a>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarScrollingDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Link
-              </a>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarScrollingDropdown"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
+
             <li className="nav-item">
               <a
                 className="nav-link disabled"

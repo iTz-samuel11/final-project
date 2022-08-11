@@ -19,6 +19,7 @@ import { Prueba2 } from "./pages/Prueba2";
 import { Perfil } from "./pages/Perfil";
 import { Maps } from "./component/Maps";
 import { MapView } from "./component/MapView";
+import { Timer } from "./pages/Timer";
 
 //create your first component
 const Layout = () => {
@@ -41,6 +42,7 @@ const Layout = () => {
             <Route element={<SolicitudPoliza />} path="/solicitud-poliza" />
             <Route element={<Solicitud />} path="/solicitud" />
             <Route element={<Pagos />} path="/pagopoliza" />
+            <Route element={<Timer />} path="/pagopoliza/confirmacion" />
             <Route element={<Clave />} path="/clave-acceso" />
             <Route element={<Perfil />} path="/perfil" />
             <Route element={<MapView />} path="/prueba" />

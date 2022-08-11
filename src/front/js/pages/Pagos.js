@@ -302,7 +302,7 @@ export const Pagos = () => {
                 saldo: plan,
               });
               if (success) {
-                navigate("/log-in");
+                navigate("/pagopoliza/confirmacion");
                 console.log("listo, revisa la base de datos");
                 return;
               } else {
