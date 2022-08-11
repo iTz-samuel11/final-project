@@ -7,8 +7,14 @@ export const Footer = () => (
   >
     <p className="text-light">
       Made with <i className="fa fa-heart text-danger" /> by{" "}
-      <a href="#">Samuel Faraco</a>
-      <a href="#">Valeria Zampetti</a>
     </p>
+    <div className="d-block">
+      <div>
+        <a href="#">{"Samuel Faraco   "}</a>
+      </div>
+      <div>
+        <a href="#">{"  Valeria Zampetti"}</a>
+      </div>
+    </div>
   </footer>
 );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../../../docs/assets/Logotipo.png";
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -9,11 +10,10 @@ export const Nav = () => {
       style={{ backgroundColor: "#211224" }}
     >
       <div className="container-fluid">
-        <h1 className="navbar-brand" style={{ marginLeft: "5%" }} href="#">
+        <img src={logo} style={{ height: "80px", width: "110px" }} />
+        <p className="navbar-brand ms-3 fs-3 justify-content-start" href="#">
           {"Seguros Bonpland"}
-        </h1>
-      </div>
-      <div>
+        </p>
         <button
           className="btn btn-danger me-4"
           onClick={(e) => {
