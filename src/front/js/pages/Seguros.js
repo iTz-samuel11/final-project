@@ -41,7 +41,7 @@ export const SegurosBonpland = () => {
             </figure>
           </div>
           <div className="col-8 g-0">
-            <button class="btn btn-danger btn-lg" onClick={() => myswal()}>
+            <button className="btn btn-danger btn-lg" onClick={() => myswal()}>
               Seleccione aquí si tiene alguna emergencia
             </button>
           </div>
@@ -111,6 +111,36 @@ export const SegurosBonpland = () => {
                       "Horario de atención al público Lunes a viernes 8:30 a.m. a 3:30 p.m."
                     }
                   </p>
+                </div>
+                <div style={{ marginTop: "5%" }} id="planes">
+                  <div className="m-3 p-2">
+                    <p className="fs-2">
+                      <strong>{"Cómo solicitar tu carta Aval"}</strong>
+                    </p>
+                  </div>
+
+                  <div className="row g-0">
+                    <div className="col-md-4">
+                      <img
+                        src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1660273075/Post_Instagram_Salud_Medicina_Carrusel_vllagu.jpg"
+                        className="img-fluid rounded-start"
+                        style={{ width: "432px", height: "287px" }}
+                      />
+                      <button
+                        className="btn btn-danger me-4"
+                        onClick={(e) => {
+                          navigate("/solicitud-aval");
+                        }}
+                      >
+                        {"Quiero solicitar mi carta aval"}
+                      </button>
+                      <p className="card-text fs-4">
+                        {
+                          "Seleccione el botón e ingrese todos los datos necesarios para pedir su carta aval"
+                        }
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
