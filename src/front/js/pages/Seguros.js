@@ -13,6 +13,9 @@ import poliza from "../../../../docs/assets/Solicitudpoliza.png";
 import logo from "../../../../docs/assets/Logotipo.png";
 import { Navbar } from "../component/NavHome";
 import Swal from "sweetalert2";
+import { Servicios } from "../component/Servicios";
+import { Footer } from "../component/Footer";
+import { AboutUs } from "../component/AboutUs";
 
 export const SegurosBonpland = () => {
   const navigate = useNavigate();
@@ -20,17 +23,20 @@ export const SegurosBonpland = () => {
     Swal.fire({
       title:
         "llama a una ambulancia o solicita atención domiciliaria a través de",
-      text: "02123445678/0424255031\n En ambos números por favor indentifiquese como cliente de Seguros BonPland",
+      text: "02123445678/0424255031",
     });
   };
 
   return (
-    <div>
+    <React.Fragment>
       <NavPrincipal />
-      <h1 align="center"> Bienvenidos! </h1>
-      <div style={{ marginTop: "8%" }}>
+      <p className="text-center m-3 p-3 fs-1">
+        <strong>{" Bienvenidos! "}</strong>
+      </p>
+      <div className="container" style={{ marginTop: "3%" }}>
+        <Servicios />
         <div className="row py-3 m-4">
-          <div className="col-4 d-flex justify-content-start g-0 ">
+          {/* <div className="col-4 d-flex justify-content-start g-0 ">
             <figure className="figure">
               <img
                 className="aspect-ratio-1-1 "
@@ -45,8 +51,8 @@ export const SegurosBonpland = () => {
             <button className="btn btn-danger btn-lg" onClick={() => myswal()}>
               Seleccione aquí si tiene alguna emergencia
             </button>
-          </div>
-          <div className="container">
+          </div> */}
+          <div className="container m-2">
             <div
               id="carouselExampleFade"
               className="carousel slide carousel-fade justify-content-center"
@@ -89,7 +95,7 @@ export const SegurosBonpland = () => {
                   <div className="carousel-caption d-none d-md-block"></div>
                 </div>
               </div>
-              <div className="row py-3 m-4">
+              <div className="row py-3 m-4 p-2">
                 <div className="col-4 d-flex justify-content-start g-0 ">
                   <figure className="figure">
                     <img
@@ -115,31 +121,20 @@ export const SegurosBonpland = () => {
                 </div>
                 <div style={{ marginTop: "5%" }} id="planes">
                   <div className="m-3 p-2">
-                    <p className="fs-2">
+                    <p className="fs-1">
                       <strong>{"Cómo solicitar tu carta Aval"}</strong>
                     </p>
                   </div>
-
                   <div className="row g-0">
                     <div className="col-md-4">
                       <img
                         src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1660273075/Post_Instagram_Salud_Medicina_Carrusel_vllagu.jpg"
                         className="img-fluid rounded-start"
                         style={{ width: "432px", height: "287px" }}
-                      />
-                      <button
-                        className="btn btn-danger me-4"
-                        onClick={(e) => {
+                        onClick={() => {
                           navigate("/solicitud-aval");
                         }}
-                      >
-                        {"Quiero solicitar mi carta aval"}
-                      </button>
-                      <p className="card-text fs-4">
-                        {
-                          "Seleccione el botón e ingrese todos los datos necesarios para pedir su carta aval"
-                        }
-                      </p>
+                      />
                     </div>
                     <div className="col-md-8">
                       <div className="card-body">
@@ -162,7 +157,9 @@ export const SegurosBonpland = () => {
             </div>
           </div>
         </div>
+        <AboutUs />
       </div>
-    </div>
+      <Footer />
+    </React.Fragment>
   );
 };

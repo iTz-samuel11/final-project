@@ -39,32 +39,16 @@ export const NavPrincipal = () => {
             className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
             style={{ bSscrollHeight: "100px" }}
           >
-            <li className="nav-item">
+            <li className="nav-item ms-3">
               <Link to="/solicitud-poliza">
-                <a
+                <p
                   className="nav-link active fs-5"
                   aria-current="page"
                   href="#"
                 >
                   {"Solicitar mi poliza"}
-                </a>
+                </p>
               </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                {"Buen Comer"}
-              </a>
-            </li>
-
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabIndex="-1"
-                aria-disabled="true"
-              >
-                Link
-              </a>
             </li>
           </ul>
 
@@ -90,10 +74,12 @@ export const NavPrincipal = () => {
                 <hr className="dropdown-divider" style={{ color: "#211224" }} />
               </li>
               <li className="m-1">
-                <p className="dropdown-item" href="#">
-                  <FontAwesomeIcon icon={faCaretRight} />
-                  {"  Solicite su Clave de Acceso"}
-                </p>
+                <Link to="/clave-acceso">
+                  <p className="dropdown-item" href="#">
+                    <FontAwesomeIcon icon={faCaretRight} />
+                    {"  Solicite su Clave de Acceso"}
+                  </p>
+                </Link>
               </li>
             </ul>
           </div>
