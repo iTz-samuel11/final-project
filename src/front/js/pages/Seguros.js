@@ -140,6 +140,21 @@ export const SegurosBonpland = () => {
                         }
                       </p>
                     </div>
+                    <div className="col-md-8">
+                      <div className="card-body">
+                        <h2 className="card-title text-center">
+                          {"Pasos para solicitar su Carta Aval"}
+                        </h2>
+                        <p className="card-text fs-4">
+                          1.Necesita su número de póliza.
+                        </p>{" "}
+                        <p className="card-text fs-4">
+                          2.Presupuesto de la clínica o centro médico donde se
+                          realizará el procedimiento.
+                        </p>{" "}
+                        <p className="card-text fs-4"> 3.Informe médico.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
