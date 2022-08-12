@@ -70,10 +70,9 @@ class CartaAval(db.Model):
     fecha_solicitada = db.Column(db.DateTime, nullable=False)
     uso_personal = db.Column(db.Boolean())
 
-    def __init__(self, motivo, lugar, fecha_a_pedir, user_id, uso_personal, poliza):
+    def __init__(self, motivo, fecha_a_pedir, user_id, uso_personal, poliza):
         self.motivo = motivo
         self.poliza = poliza
-        self.lugar = lugar
         self.fecha_a_pedir = fecha_a_pedir
         self.user_id = user_id
         self.uso_personal = uso_personal
@@ -85,7 +84,6 @@ class CartaAval(db.Model):
     def serialize(self):
         return{
             "motivo": self.motivo,
-            "lugar": self.lugar,
             "fecha_solicitada": self.fecha_solicitada.isoformat(),
             "fecha_a_pedir": self.fecha_a_pedir,
             "uso_personal": self.uso_personal,

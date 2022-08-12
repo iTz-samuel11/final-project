@@ -5,15 +5,20 @@ import { Context } from "../store/appContext";
 
 export const Perfil = () => {
   const { store, actions } = useContext(Context);
-  const nombre = localStorage.getItem("user-nombre");
-  const apellido = localStorage.getItem("user-apellido");
-  const cedula = localStorage.getItem("user-cedula");
-  const poliza = store.user && store.user.poliza;
-  const _poliza = poliza.slice(0, -4);
-
+  useEffect(() => {
+    actions.getUser();
+  }, []);
   useEffect(() => {
     actions.getAval();
   }, []);
+
+  const nombre = store.user && store.user.name;
+  const apellido = store.user && store.user.lastname;
+  const cedula = localStorage.getItem("user-cedula");
+  const poliza = store.user && store.user.poliza;
+  // const _poliza = poliza.slice(0, -5);
+  const _poliza = "123";
+
   return (
     <React.Fragment>
       <Nav />
@@ -62,7 +67,7 @@ export const Perfil = () => {
           <div className="tab-pane" id="aval">
             <div className="d-block justify-content-center m-2 w-100">
               {store.avals.map((aval, index) => {
-                return <AvalCard key={aval.id} item={aval} poliza={_poliza} />;
+                return <AvalCard key={index} item={aval} poliza={_poliza} />;
               })}
             </div>
           </div>

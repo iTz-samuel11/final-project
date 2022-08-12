@@ -1,23 +1,46 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import { Nav } from "../component/Nav";
 import { Context } from "../store/appContext";
 import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
+import { MapView } from "../component/MapView";
+import { Footer } from "../component/Footer";
 
 export const SolicitudAval = () => {
-  const form = useRef();
-  const email = localStorage.getItem("user-email");
-  const nombre = localStorage.getItem("user-nombre");
-  const [poliza, setPoliza] = useState("");
-  const [presupuesto, setPresupuesto] = useState("");
-  const [motivo, setMotivo] = useState("");
-  const [lugar, setLugar] = useState("");
-  const [fecha, setFecha] = useState("");
-  const [usoPersonal, setUsoPersonal] = useState(true);
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    actions.poliza();
-  }, [window.onload]);
+    actions.getUser();
+  }, []);
+
+  const form = useRef();
+  const email = store.user && store.user.email;
+  const nombre = store.user && store.user.name;
+  const [poliza, setPoliza] = useState("");
+  const [presupuesto, setPresupuesto] = useState("");
+  const [motivo, setMotivo] = useState("");
+  const [fecha, setFecha] = useState("");
+  const [usoPersonal, setUsoPersonal] = useState(true);
+
+  const notSend = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Ha ocurrido un error",
+      text: "No he podido enviar la solicitud",
+    });
+  };
+  const send = () => {
+    Swal.fire({
+      icon: "success",
+      title: "listo",
+    });
+  };
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -25,14 +48,14 @@ export const SolicitudAval = () => {
       poliza: poliza,
       presupuesto: presupuesto,
       motivo: motivo,
-      lugar: lugar,
       fecha_a_pedir: fecha,
       uso_personal: usoPersonal,
     });
     if (!succes) {
-      alert("No se envió");
+      notSend();
       return;
     } else {
+      send();
       emailjs
         .sendForm(
           "service_by7xqfy",
@@ -53,18 +76,24 @@ export const SolicitudAval = () => {
   return (
     <React.Fragment>
       <Nav />
-      <nav className="nav justify-content-center nav-pills m-2">
-        <a className="nav-link active" href="#usoPersonal" data-bs-toggle="tab">
+      <nav className="nav nav-dark justify-content-center nav-pills m-2">
+        <a
+          className="nav-link active fs-5"
+          href="#usoPersonal"
+          data-bs-toggle="tab"
+        >
           {"personal"}
         </a>
-        <a className="nav-link" href="#externo" data-bs-toggle="tab">
+        <a className="nav-link fs-5" href="#externo" data-bs-toggle="tab">
           {"externa"}
         </a>
       </nav>
       <div className="tab-content py-5 justify-content-center">
         <div className="tab-pane active" id="usoPersonal">
           <form ref={form} onSubmit={sendEmail}>
-            <h3>{"Numero de Poliza"}</h3>
+            <p className="fs-2">
+              <strong>{"Numero de Poliza"}</strong>
+            </p>
             <input
               type="text"
               className="form-control m-4"
@@ -73,7 +102,9 @@ export const SolicitudAval = () => {
               onChange={(e) => setPoliza(e.target.value)}
               aria-required="true"
             />
-            <h3>{"fecha"}</h3>
+            <p className="fs-2">
+              <strong>{"fecha"}</strong>
+            </p>
             <input
               type="text"
               className="form-control m-4"
@@ -83,7 +114,9 @@ export const SolicitudAval = () => {
               onChange={(e) => setFecha(e.target.value)}
               aria-required="true"
             />
-            <h3>{"Presupuesto a Solicitar"}</h3>
+            <p className="fs-2">
+              <strong>{"Presupuesto a Solicitar"}</strong>
+            </p>
             <input
               type="text"
               className="form-control m-4"
@@ -93,7 +126,9 @@ export const SolicitudAval = () => {
               onChange={(e) => setPresupuesto(e.target.value)}
               aria-required="true"
             />
-            <h3>{"Informe de la Solicitud"}</h3>
+            <p className="fs-2">
+              <strong>{"Informe de la Solicitud"}</strong>
+            </p>
             <textarea
               type="text"
               className="form-control m-4"
@@ -103,27 +138,33 @@ export const SolicitudAval = () => {
               style={{ height: "80px" }}
               placeholder="Informe"
             />
-            <h3>{"Lugar"}</h3>
-            <textarea
-              type="text"
-              className="form-control m-4"
-              value={lugar}
-              onChange={(e) => setLugar(e.target.value)}
-              style={{ height: "80px" }}
-              placeholder="Informe"
-            />
-            <h3>{"Informe del Doctor"} </h3>
-            <input type="file" name="file" />
+            <p className="fs-2">
+              <strong>{"Lugar"}</strong>
+            </p>
+            <div>
+              <MapView />
+            </div>
             <input type="hidden" name="user_email" value={email} />
             <input type="hidden" name="nombre" value={nombre} />
-            <button className="btn btn-dark" type="submit" value="send" />
+            <div className="m-4">
+              <button
+                className="btn btn-dark m-4 p-4 fs-4 col-11"
+                type="submit"
+                value="send"
+                style={{ marginLeft: "60%" }}
+              >
+                {"Enviar Petición"}
+              </button>
+            </div>
           </form>
         </div>
         <div className="tab-pane" id="externo">
           <form ref={form} onSubmit={sendEmail}>
             <input type="hidden" name="user_email" value={email} />
             <input type="hidden" name="nombre" value={nombre} />
-            <h3>{"Numero de Poliza"}</h3>
+            <p className="fs-2">
+              <strong>{"Numero de Poliza"}</strong>
+            </p>
             <input
               type="number"
               className="form-control m-4"
@@ -132,7 +173,9 @@ export const SolicitudAval = () => {
               onChange={(e) => setPoliza(e.target.value)}
               aria-required="true"
             />
-            <h3>{"Presupuesto a Solicitar"}</h3>
+            <p className="fs-2">
+              <strong>{"Presupuesto a Solicitar"}</strong>
+            </p>
             <input
               type="number"
               className="form-control m-4"
@@ -141,7 +184,9 @@ export const SolicitudAval = () => {
               onChange={(e) => setPresupuesto(e.target.value)}
               aria-required="true"
             />
-            <h3>{"Fecha"}</h3>
+            <p className="fs-2">
+              <strong>{"Fecha"}</strong>
+            </p>
             <input
               type="number"
               className="form-control m-4"
@@ -150,7 +195,9 @@ export const SolicitudAval = () => {
               onChange={(e) => setFecha(e.target.value)}
               aria-required="true"
             />
-            <h3>{"Informe de Solicitud"}</h3>
+            <p className="fs-2">
+              <strong>{"Informe de Solicitud"}</strong>
+            </p>
             <input
               type="textarea"
               className="form-control m-4"
@@ -159,24 +206,26 @@ export const SolicitudAval = () => {
               value={motivo}
               onChange={(e) => setMotivo(e.target.value)}
             />
-            <h3>{"Lugar"}</h3>
-            <input
-              type="text"
-              className="form-control m-4"
-              style={{ height: "80px" }}
-              placeholder="Lugar"
-              value={lugar}
-              onChange={(e) => {
-                setLugar(e.target.value);
-                setUsoPersonal(false);
-              }}
-            />
-            <h3>{"Informe del Doctor"}</h3>
-            <input type="file" name="file" />
-            <button className="btn btn-dark" type="submit" value="send" />
+            <p className="fs-2">
+              <strong>{"Lugar"}</strong>
+            </p>
+            <div>
+              <MapView />
+            </div>
+            <div className="m-4">
+              <button
+                className="btn btn-dark m-4 p-4 fs-4 col-11"
+                type="submit"
+                value="send"
+                style={{ marginLeft: "60%" }}
+              >
+                {"Enviar Petición"}
+              </button>
+            </div>
           </form>
         </div>
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

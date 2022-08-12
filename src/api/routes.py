@@ -89,7 +89,6 @@ def ask_aval():
     poliza=body.get('poliza', None)
     presupuesto=body.get('presupuesto', None)
     motivo= body.get('motivo', None)
-    lugar = body.get('lugar', None)
     fecha_a_pedir = body.get('fecha_a_pedir', None)
     uso_personal = body.get('uso_personal', None)
     
@@ -107,7 +106,7 @@ def ask_aval():
 
     poliza.saldo= _presupuesto
     db.session.commit()
-    new_aval = CartaAval(motivo, lugar, fecha_a_pedir, user_id, uso_personal, _poliza)
+    new_aval = CartaAval(motivo, fecha_a_pedir, user_id, uso_personal, _poliza)
     return jsonify(new_aval.serialize()),201
 
 @ask.route('/clave', methods=['POST'])
