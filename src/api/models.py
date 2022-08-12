@@ -65,8 +65,7 @@ class CartaAval(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     poliza = db.Column(db.String(20), nullable=False)
     motivo = db.Column(db.String(600), nullable=False)
-    lugar = db.Column(db.String(80), nullable=False)
-    fecha_a_pedir = db.Column(db.Integer, nullable=False)
+    fecha_a_pedir = db.Column(db.DateTime, nullable=False)
     fecha_solicitada = db.Column(db.DateTime, nullable=False)
     uso_personal = db.Column(db.Boolean())
 

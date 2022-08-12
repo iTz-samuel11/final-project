@@ -8,6 +8,7 @@ import "react-credit-cards/es/styles-compiled.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faCheck } from "@fortawesome/free-solid-svg-icons";
 import {} from "@fortawesome/free-regular-svg-icons";
+import { Footer } from "../component/Footer";
 
 export const Pagos = () => {
   const plan1 = 2500;
@@ -315,6 +316,7 @@ export const Pagos = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

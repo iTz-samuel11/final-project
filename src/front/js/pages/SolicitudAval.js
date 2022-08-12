@@ -11,10 +11,11 @@ import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
 import { MapView } from "../component/MapView";
 import { Footer } from "../component/Footer";
+import { useNavigate } from "react-router-dom";
 
 export const SolicitudAval = () => {
   const { store, actions } = useContext(Context);
-
+  const navigate = useNavigate();
   useEffect(() => {
     actions.getUser();
   }, []);
@@ -35,12 +36,6 @@ export const SolicitudAval = () => {
       text: "No he podido enviar la solicitud",
     });
   };
-  const send = () => {
-    Swal.fire({
-      icon: "success",
-      title: "listo",
-    });
-  };
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -55,7 +50,16 @@ export const SolicitudAval = () => {
       notSend();
       return;
     } else {
-      send();
+      const Toast = Swal.mixin({
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: "Su Aval ya ha sido enviada al Correo !!!",
+      });
       emailjs
         .sendForm(
           "service_by7xqfy",
@@ -71,6 +75,10 @@ export const SolicitudAval = () => {
             console.log(error.text);
           }
         );
+
+      setTimeout(() => {
+        navigate("/segurosBonpland");
+      }, [3000]);
     }
   };
   return (
