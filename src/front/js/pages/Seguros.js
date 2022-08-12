@@ -26,7 +26,7 @@ export const SegurosBonpland = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavPrincipal />
       <h1 align="center"> Bienvenidos! </h1>
       <div style={{ marginTop: "8%" }}>
         <div className="row py-3 m-4">
@@ -45,15 +45,75 @@ export const SegurosBonpland = () => {
               Seleccione aquí si tiene alguna emergencia
             </button>
           </div>
-          <div className="container" id="unete">
+          <div className="container">
             <div
-              className="m-4"
-              style={{
-                border: "1px solid gray",
-                borderRadius: "40px",
-                backgroundImage: `url("https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2017/03/color-degradado-fondos-degradados-multicolor-51200.jpg?fit=1920%2C1200&quality=50&strip=all&ssl=1923/740/gradient-wallpaper-preview.jpg")`,
-              }}
-            ></div>
+              id="carouselExampleFade"
+              className="carousel slide carousel-fade justify-content-center"
+              data-bs-ride="carousel"
+            >
+              <div
+                className="carousel-inner m-4"
+                style={{ borderRadius: "40px" }}
+              >
+                <div className="carousel-item active">
+                  <img
+                    src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1660265818/Post_Instagram_Salud_Medicina_Carrusel_lostso.png"
+                    className="d-block w-100"
+                    alt="loading..."
+                  />
+                  <div className="carousel-caption d-none d-md-block"></div>
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1660266199/Post_Instagram_Salud_Medicina_Carrusel_1_g5najn.png"
+                    className="d-block w-100"
+                    alt="loading..."
+                  />
+                  <div className="carousel-caption d-none d-md-block"></div>
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1660266412/Post_Instagram_Salud_Medicina_Carrusel_2_vpshur.png"
+                    className="d-block w-100"
+                    alt="loading..."
+                  />
+                  <div className="carousel-caption d-none d-md-block"></div>
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://res.cloudinary.com/dn7fj8zhu/image/upload/v1660270172/Post_Instagram_Salud_Medicina_Carrusel_3_ivhzcu.png"
+                    className="d-block w-100"
+                    alt="loading..."
+                  />
+                  <div className="carousel-caption d-none d-md-block"></div>
+                </div>
+              </div>
+              <div className="row py-3 m-4">
+                <div className="col-4 d-flex justify-content-start g-0 ">
+                  <figure className="figure">
+                    <img
+                      className="rounded-circle "
+                      src="https://us.123rf.com/450wm/sanek13744/sanek137441607/sanek13744160700423/60163194-reloj-icono-dise%C3%B1o-plano-ilustraci%C3%B3n-vectorial-sobre-fondo-blanco.jpg?ver=6"
+                      alt=""
+                      style={{ width: "250px", height: "250px" }}
+                    />
+                  </figure>
+                </div>
+                <div className="col-8 g-0">
+                  <h2>{"Cúal es nuestro horario?"}</h2>
+                  <p className="lead">
+                    {
+                      "A partir del lunes 21 de marzo de 2022, regresamos a nuestro horario habitual de atención por oficina"
+                    }
+                  </p>
+                  <p className="lead">
+                    {
+                      "Horario de atención al público Lunes a viernes 8:30 a.m. a 3:30 p.m."
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
