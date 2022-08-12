@@ -43,7 +43,7 @@ export const SignUp = (props) => {
           <div className="row" style={{ marginTop: "5%" }}>
             <form>
               <p className="fs-2">
-                <strong>{"Name"}</strong>
+                <strong>{"Nombre"}</strong>
               </p>
               <input
                 type="text"
@@ -51,12 +51,12 @@ export const SignUp = (props) => {
                 min="3"
                 className="form-control m-1"
                 value={nombre}
-                placeholder="name"
+                placeholder="nombre"
                 onChange={(e) => setNombre(e.target.value)}
                 aria-required="true"
               />
               <p className="fs-2">
-                <strong>{"Last Name"}</strong>
+                <strong>{"Apellido"}</strong>
               </p>
               <input
                 type="text"
@@ -64,7 +64,7 @@ export const SignUp = (props) => {
                 min="3"
                 className="form-control m-1"
                 value={apellido}
-                placeholder="Last name"
+                placeholder="apellido"
                 onChange={(e) => setApellido(e.target.value)}
                 aria-required="true"
               />
@@ -94,7 +94,7 @@ export const SignUp = (props) => {
                 aria-required="true"
               />
               <p className="fs-2">
-                <strong>{"Password"}</strong>
+                <strong>{"Contraseña"}</strong>
               </p>
               <input
                 type="password"
@@ -102,7 +102,7 @@ export const SignUp = (props) => {
                 name="password"
                 min={"8"}
                 value={password}
-                placeholder="password"
+                placeholder="contraseña"
                 onChange={(e) => setPassword(e.target.value)}
                 aria-required="true"
               />

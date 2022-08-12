@@ -10,10 +10,10 @@ export const Footer = () => (
     </p>
     <div className="d-block">
       <div>
-        <a href="#">{"Samuel Faraco   "}</a>
+        <a href="https://github.com/iTz-samuel11">{"Samuel Faraco   "}</a>
       </div>
       <div>
-        <a href="#">{"  Valeria Zampetti"}</a>
+        <a href="https://github.com/ValeriaZampetti">{"  Valeria Zampetti"}</a>
       </div>
     </div>
   </footer>

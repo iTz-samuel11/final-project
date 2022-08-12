@@ -37,6 +37,7 @@ export const SegurosBonpland = () => {
                 src={emergencia}
                 alt=""
                 style={{ width: "500px", height: "500px" }}
+                onClick={() => myswal()}
               />
             </figure>
           </div>

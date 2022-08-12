@@ -25,7 +25,7 @@ export const Solicitud = () => {
             onClick={(e) => {
               navigate("/solicitud-poliza");
             }}
-            className="btn btn-primary"
+            className="btn btn-dark px-4 py-2 m-4"
           >
             {"volver"}
           </button>

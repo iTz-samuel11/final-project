@@ -3,8 +3,10 @@ import { AvalCard } from "../component/AvalCard";
 import { Nav } from "../component/Nav";
 import { Context } from "../store/appContext";
 import { Footer } from "../component/Footer";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const Perfil = () => {
+  const navigate = useNavigate();
   const { store, actions } = useContext(Context);
   useEffect(() => {
     actions.getUser();
@@ -17,8 +19,7 @@ export const Perfil = () => {
   const apellido = store.user && store.user.lastname;
   const cedula = localStorage.getItem("user-cedula");
   const poliza = store.user && store.user.poliza;
-  // const _poliza = poliza.slice(0, -5);
-  const _poliza = "123";
+  const _poliza = poliza.slice(0, -5);
 
   return (
     <React.Fragment>
@@ -70,6 +71,15 @@ export const Perfil = () => {
                 {"historial de clave"}
               </a>
             </nav>
+            <button
+              className="btn btn-light m-4 p-2"
+              onClick={() => {
+                localStorage.clear();
+                navigate("/");
+              }}
+            >
+              {"Cerrar Sesión"}
+            </button>
           </div>
           <div className="col-6 tab-content" style={{ width: "60%" }}>
             <div className="tab-pane active">
