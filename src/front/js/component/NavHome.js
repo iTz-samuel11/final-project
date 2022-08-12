@@ -31,12 +31,17 @@ export const Navbar = () => {
           >
             <li className="nav-item mx-2">
               <a className="nav-link fs-5" aria-current="page" href="#unete">
-                {"Unete"}
+                {"Únete"}
               </a>
             </li>
             <li className="nav-item mx-2">
               <a className="nav-link fs-5" href="#planes">
                 {"Nuestros Planes"}
+              </a>
+            </li>
+            <li className="nav-item mx-2">
+              <a className="nav-link fs-5" href="#aboutUs">
+                {"Sobre Nosotros"}
               </a>
             </li>
           </ul>

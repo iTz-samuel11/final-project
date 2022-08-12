@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import { Footer } from "../component/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownLong } from "@fortawesome/free-solid-svg-icons";
+import { AboutUs } from "../component/AboutUs";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -286,6 +287,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
+            <AboutUs />
           </div>
         </div>
       </div>
