@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Swal from "sweetalert2";
 import { NavLog } from "../component/NavLog";
+import { Footer } from "../component/Footer";
 
 export const LogIn = (props) => {
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ export const LogIn = (props) => {
         Introduzca sus datos para ingresar al portal
       </p>
       <div className="container">
-        <div className="row">
+        <div className="row m-3">
           <form>
             <p className="fs-2">
               <strong>{"Email"}</strong>
@@ -76,7 +77,7 @@ export const LogIn = (props) => {
             sus pagos.
           </p>
           <button
-            className="btn btn-dark me-4 btn-lg"
+            className="btn btn-dark me-4 btn-lg m-4"
             onClick={(e) => {
               navigate("/sign-up");
             }}
@@ -85,6 +86,7 @@ export const LogIn = (props) => {
           </button>
         </div>
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

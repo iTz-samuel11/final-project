@@ -6,7 +6,7 @@ export const Footer = () => (
     style={{ backgroundColor: "#211224" }}
   >
     <p className="text-light">
-      Copyright 2022, Seguros BonPland,C.A.Rif: J-01929102-0 Todos los derechos
+      Copyright 2022, Seguros BonPland,C.A.Rif: J-029744531-2 Todos los derechos
       reservados
     </p>
     <div className="d-block">
