@@ -156,7 +156,7 @@ export const Home = () => {
                 <h2>{"Que es un seguro de Vida?"}</h2>
                 <p className="lead">
                   {
-                    "El seguro de salud te protege de gastos médicos altos e inesperados. Usted paga menos por los cuidados de salud cubiertos dentro de la red, incluso antes de que usted alcance su deducible. Usted recibe cuidados preventivos gratis, como vacunas, evaluaciones y chequeos, incluso antes de que usted alcance su deducible."
+                    "El seguro de salud te protege de gastos médicos altos e inesperados. Usted paga menos por los cuidados de salud cubiertos dentro de la red, incluso antes de que usted alcance su deducible. Usted recibe cuidados preventivos gratis, como vacunas, evaluaciones y chequeos."
                   }
                 </p>
               </div>
@@ -194,7 +194,7 @@ export const Home = () => {
                 </figure>
               </div>
               <div className="col-8 g-0">
-                <h2>{"Porque es importante un seguro?"}</h2>
+                <h2>{"¿Por qué es importante un seguro?"}</h2>
                 <p className="lead">
                   {
                     "Un seguro de salud es un acuerdo legal que haces con una compañía de seguros de salud. Ese acuerdo incluye un plan de salud que te ayuda a pagar ciertos servicios y cuidados médicos, para que no tengas que pagar todos los costos tú mismo."
@@ -205,7 +205,7 @@ export const Home = () => {
             <div style={{ marginTop: "5%" }} id="planes">
               <div className="m-3 p-2">
                 <p className="fs-2">
-                  <strong>{"Cuales son nuestros planes?"}</strong>
+                  <strong>{"¿Cuales son nuestros planes?"}</strong>
                 </p>
               </div>
               <div
@@ -227,7 +227,7 @@ export const Home = () => {
                       </h2>
                       <p className="card-text fs-4">
                         {
-                          "- Este es un plan que tiene una cobertura hasta de 2.500$. Es un plan pensado para 1 persona, Tendras acceso a muchos beneficios, como examenes de rutina gratis en nuestros centros afiliados"
+                          "- Este es un plan que tiene una cobertura hasta de 2.500$. Es un plan pensado para 1 persona, Tendrás acceso a muchos beneficios, como examenes de rutina gratis en nuestros centros afiliados"
                         }
                       </p>
                     </div>
@@ -253,7 +253,7 @@ export const Home = () => {
                       </h2>
                       <p className="card-text fs-4">
                         {
-                          "- Este es un plan que tiene una cobertura hasta de 5.000$. Es un plan pensado para 2 persona, Tendras acceso a 1 consulta medica mensual totalmente gratis con cualquiera de nuestros doctores afiliados."
+                          "- Este es un plan que tiene una cobertura hasta de 5.000$. Es un plan pensado para 2 personas, Tendrás acceso a 1 consulta medica mensual totalmente gratis con cualquiera de nuestros doctores afiliados."
                         }
                       </p>
                     </div>
@@ -279,7 +279,7 @@ export const Home = () => {
                       </h2>
                       <p className="card-text fs-4">
                         {
-                          "- Este es un plan que tiene una cobertura hasta de 10.000$. Es un plan pensado para 4 persona, Tendras acceso a todos los beneficos anteriores."
+                          "- Este es un plan que tiene una cobertura hasta de 10.000$. Es un plan pensado para 4 personas, Tendrás acceso a todos los beneficos anteriores."
                         }
                       </p>
                     </div>
