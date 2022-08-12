@@ -45,9 +45,10 @@ export const Navbar = () => {
               </a>
             </li>
           </ul>
-
           <Link to="/log-in">
-            <button className="btn btn-light">{"logIn Here"}</button>
+            <button className="btn btn-light  px-3 py-2 me-4 fs-5">
+              {"logIn Here"}
+            </button>
           </Link>
         </div>
       </div>
